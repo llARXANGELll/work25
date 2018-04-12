@@ -17,6 +17,11 @@ public class HomePageSteps {
         homePage.checkNamePageTitile(nameTitle);
     }
 
+    @Допустим("Закрытие всплывающего предложения")
+    public void closeOffer () {
+        homePage.closeCookie();
+    }
+
     @Допустим("Сохранение кол. объявлений отображаемых перед названием производителя {string}")
     public void saveCountBrand(String nameAutoHomePage) {
         homePage.saveCountBrand(nameAutoHomePage);

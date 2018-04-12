@@ -1,10 +1,12 @@
 package work28;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
 
 
 public class HomePage {
@@ -19,9 +21,16 @@ public class HomePage {
         Assert.assertTrue(title().matches(getNameTitile));
     }
 
+    public void closeCookie() {
+        $("a.cookie-warning__close").waitUntil(Condition.visible, 10000).click();
+    }
+
     public void saveCountBrand(String countBrand) {
         SelenideElement valueAuto = $(By.xpath("//div[text() = '"+countBrand+"']/following :: div"));
-        sumValueAutoAllOffers = valueAuto.getText();
+
+//        $(".Button_color_transparentBlue").click();
+
+        $("a.cookie-warning__close").waitUntil(Condition.visible, 10000).click();
     }
 
     public void goToThePageAuto(String clickNameAuto) {
