@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="work22">
+    <test name="work22">
+        <classes>
+            <class name="work25.Work25Test"></class>
+        </classes>
+    </test>
+</suite>
