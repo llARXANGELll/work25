@@ -8,7 +8,7 @@ import work25.Work25Test;
 @CucumberOptions(
         plugin = "json:target/cucumber-report.json",
         features = "src/test/resources/feature",
-        glue = "work25"
+        glue = "work25.stepsCucumber"
 )
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
