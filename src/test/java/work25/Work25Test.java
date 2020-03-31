@@ -20,5 +20,4 @@ public class Work25Test {
         $(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]")).shouldHave(text("2 718 764.83 ₽"));
         $(By.className("my-assets")).waitWhile(text("Моих средств 2 936 972.64 ₽"),50);
     }
-
 }
