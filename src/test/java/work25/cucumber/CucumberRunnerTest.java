@@ -11,4 +11,5 @@ import work25.Work25Test;
         glue = "work25"
 )
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
+
 }

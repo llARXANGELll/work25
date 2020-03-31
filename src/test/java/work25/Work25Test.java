@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class Work25Test {
 
     @Test
-    public void work22() {
+    public void work25() {
 
         open("https://idemo.bspb.ru");
         $(By.id("login-button")).click();
