@@ -1,5 +1,6 @@
 package work25.cucumber;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import work25.Work25Test;
 
@@ -9,5 +10,5 @@ import work25.Work25Test;
         features = "src/test/resources/feature",
         glue = "work25"
 )
-public class CucumberRunnerTest extends Work25Test {
+public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 }
