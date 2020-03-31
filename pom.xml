@@ -9,8 +9,6 @@
   <version>1.0.0</version>
 
   <name>work25</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,7 +43,13 @@
       <artifactId>aspectjweaver</artifactId>
       <version>${aspectj.version}</version>
     </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>5.5.0</version>
+    </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
