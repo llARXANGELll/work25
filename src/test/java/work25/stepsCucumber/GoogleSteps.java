@@ -76,8 +76,8 @@ public class GoogleSteps {
     }
 
     @Допустим("проверяет что сумма в блоке Финансовая свобода отображается в формате {string}")
-    public void проверяетЧтоСуммаВБлокеФинансоваяСвободаОтображаетсяВФормате(String string) {
-        $((By.xpath("//div[2]/div/div/span/span[@class='amount']"))).shouldHave(text(string));
+    public void проверяетЧтоСуммаВБлокеФинансоваяСвободаОтображаетсяВФормате(String mySumm) {
+        $((By.xpath("//div[2]/div/div/span/span[@class='amount']"))).shouldHave(text(mySumm));
     }
 
     @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
