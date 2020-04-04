@@ -15,32 +15,23 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class GoogleSteps {
+public class Work25Steps {
 
 
     @Допустим("пользователь входит на сайт")
-
-    public void пользовательВходитНаСайт() {
+    public void opensSite() {
         open("https://idemo.bspb.ru/");
-    }
-
-    @Допустим("очищает поле логин")
-    public void очищаетПолеЛогин() {
-        $(By.name("username")).clear();
     }
 
     @Допустим("вводит логин")
     public void вводитЛогин() {
+        $(By.name("username")).clear();
         $(By.name("username")).sendKeys("demo");
-    }
-
-    @Допустим("очищает поле пароль")
-    public void очищаетПолеПароль() {
-        $(By.name("password")).clear();
     }
 
     @Допустим("вводит парль")
     public void вводитПарль() {
+        $(By.name("password")).clear();
         $(By.name("password")).setValue("demo");
     }
 
@@ -52,16 +43,11 @@ public class GoogleSteps {
     @Допустим("открывается страница подтверждения")
     public void открываетсяСтраницаПодтверждения() {
         Assert.assertEquals(getWebDriver().getTitle(), "Интернет банк - Банк Санкт-Петербург");
-
-    }
-
-    @Допустим("очищает поле подтверждения смс")
-    public void очищаетПолеПодтвержденияСмс() {
-        $(By.name("otpCode")).clear();
     }
 
     @Допустим("пользователь вводит код из смс")
     public void пользовательВводитКодИзСмс() {
+        $(By.name("otpCode")).clear();
         $(By.name("otpCode")).setValue("0000");
     }
 
@@ -75,10 +61,11 @@ public class GoogleSteps {
         $(By.id("bank-overview")).click();
     }
 
-    @Допустим("проверяет что сумма в блоке Финансовая свобода отображается в формате {string}")
+    @Допустим("проверить наличие суммы {string}")
     public void проверяетЧтоСуммаВБлокеФинансоваяСвободаОтображаетсяВФормате(String mySumm) {
-        $((By.xpath("//div[2]/div/div/span/span[@class='amount']"))).shouldHave(text(mySumm));
+        $((By.xpath("//span[@class='amount']"))).shouldHave(text(mySumm));
     }
+
 
     @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
     public void наводитКурсорНаСуммуВБлокеФинансоваяСвободаИПроверяетсяПоявлениеСуммы() {
