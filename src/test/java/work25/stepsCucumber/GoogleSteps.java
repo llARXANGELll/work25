@@ -70,17 +70,17 @@ public class GoogleSteps {
         $(By.xpath("//button[@id='login-otp-button']")).click();
     }
 
-    @Допустим("переходит во вкладку {string} через верхнее меню")
-    public void переходитВоВкладкуЧерезВерхнееМеню(String string) {
+    @Допустим("переходит во вкладку обзор через верхнее меню")
+    public void переходитВоВкладкуЧерезВерхнееМеню() {
         $(By.id("bank-overview")).click();
     }
 
-    @Допустим("проверяет что сумма в блоке {string} отображается в формате {string}")
-    public void проверяетЧтоСуммаВБлокеОтображаетсяВФормате(String string, String string2) {
-        $((By.xpath("//div[2]/div/div/span/span[@class='amount')]"))).shouldHave(text("2 718 764.83 ₽"));
+    @Допустим("проверяет что сумма в блоке Финансовая свобода отображается в формате {string}")
+    public void проверяетЧтоСуммаВБлокеФинансоваяСвободаОтображаетсяВФормате(String string) {
+        $((By.xpath("//div[2]/div/div/span/span[@class='amount']"))).shouldHave(text(string));
     }
 
-    @Допустим("наводит курсор на сумму в блоке «Финансовая свобода» и проверяется появление суммы")
+    @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
     public void наводитКурсорНаСуммуВБлокеФинансоваяСвободаИПроверяетсяПоявлениеСуммы() {
         WebElement amount = $(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         WebElement myMoney = $(By.className("my-assets"));
