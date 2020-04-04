@@ -24,51 +24,51 @@ public class Work25Steps {
     }
 
     @Допустим("вводит логин")
-    public void вводитЛогин() {
+    public void enterlogin() {
         $(By.name("username")).clear();
         $(By.name("username")).sendKeys("demo");
     }
 
     @Допустим("вводит парль")
-    public void вводитПарль() {
+    public void enterPassword() {
         $(By.name("password")).clear();
         $(By.name("password")).setValue("demo");
     }
 
     @Допустим("нажимает кнопку войти на странице логина")
-    public void нажимаетКнопкуВойтиНаСтраницеЛогина() {
+    public void clicksLoginButton() {
         $(By.id("login-button")).click();
     }
 
     @Допустим("открывается страница подтверждения")
-    public void открываетсяСтраницаПодтверждения() {
+    public void pageTitleCheck() {
         Assert.assertEquals(getWebDriver().getTitle(), "Интернет банк - Банк Санкт-Петербург");
     }
 
     @Допустим("пользователь вводит код из смс")
-    public void пользовательВводитКодИзСмс() {
+    public void smsCodeInput() {
         $(By.name("otpCode")).clear();
         $(By.name("otpCode")).setValue("0000");
     }
 
     @Допустим("нажимает кнопку войти на странице подтверждения кода из смс")
-    public void нажимаетКнопкуВойтиНаСтраницеПодтвержденияКодаИзСмс() {
+    public void clicksButtonAfterEnteringSms() {
         $(By.xpath("//button[@id='login-otp-button']")).click();
     }
 
     @Допустим("переходит во вкладку обзор через верхнее меню")
-    public void переходитВоВкладкуЧерезВерхнееМеню() {
+    public void goToTheOverviewTab() {
         $(By.id("bank-overview")).click();
     }
 
     @Допустим("проверить наличие суммы {string}")
-    public void проверяетЧтоСуммаВБлокеФинансоваяСвободаОтображаетсяВФормате(String mySumm) {
+    public void checkAmount(String mySumm) {
         $((By.xpath("//span[@class='amount']"))).shouldHave(text(mySumm));
     }
 
 
     @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
-    public void наводитКурсорНаСуммуВБлокеФинансоваяСвободаИПроверяетсяПоявлениеСуммы() {
+    public void hoverOverTheAmount() {
         WebElement myMoney = $(By.className("my-assets"));
         Selenide.actions().moveToElement(myMoney).perform();
         Assert.assertEquals(myMoney.getText(), "Моих средств 2 936 972.64 ₽");
