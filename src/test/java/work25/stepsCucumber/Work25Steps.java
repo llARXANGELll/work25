@@ -18,16 +18,16 @@ public class Work25Steps {
         open("https://idemo.bspb.ru/");
     }
 
-    @Допустим("вводит логин")
-    public void enterlogin() {
+    @Допустим("вводит логин {string}")
+    public void enterlogin(String loginValue) {
         $(By.name("username")).clear();
-        $(By.name("username")).sendKeys("demo");
+        $(By.name("username")).sendKeys(loginValue);
     }
 
-    @Допустим("вводит парль")
-    public void enterPassword() {
+    @Допустим("вводит парль {string}")
+    public void enterPassword(String passwordValue) {
         $(By.name("password")).clear();
-        $(By.name("password")).setValue("demo");
+        $(By.name("password")).setValue(passwordValue);
     }
 
     @Допустим("нажимает кнопку войти на странице логина")
@@ -40,10 +40,10 @@ public class Work25Steps {
         Assert.assertEquals(getWebDriver().getTitle(), "Интернет банк - Банк Санкт-Петербург");
     }
 
-    @Допустим("пользователь вводит код из смс")
-    public void smsCodeInput() {
+    @Допустим("пользователь вводит код из смс {string}")
+    public void smsCodeInput(String code) {
         $(By.name("otpCode")).clear();
-        $(By.name("otpCode")).setValue("0000");
+        $(By.name("otpCode")).setValue(code);
     }
 
     @Допустим("нажимает кнопку войти на странице подтверждения кода из смс")
