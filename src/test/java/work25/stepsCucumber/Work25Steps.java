@@ -58,9 +58,8 @@ public class Work25Steps {
 
     @Допустим("проверить наличие суммы {string}")
     public void checkAmount(String mySumm) {
-        $((By.xpath("//span[@class='amount']"))).shouldHave(text(mySumm));
+        $(By.xpath("//span[@class='amount']")).shouldHave(text(mySumm));
     }
-
 
     @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
     public void hoverOverTheAmount() {
