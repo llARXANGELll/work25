@@ -60,7 +60,7 @@ public class Work25Steps {
     public void checkAmount(String mySumm) {
         $(By.xpath("//span[@class='amount']")).shouldHave(text(mySumm));
     }
-
+    
     @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
     public void hoverOverTheAmount() {
         WebElement myMoney = $(By.className("my-assets"));
