@@ -11,31 +11,33 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class Work25Steps {
+public class Work27Steps {
 
     @Допустим("пользователь входит на сайт")
     public void opensSite() {
         open("https://www.sberbank.ru");
     }
 
-    @Допустим("Проверяет название страницы на соответствие {string}")
-    public void pageTitleCheck(String nameTitile) {
-        Assert.assertEquals(getWebDriver().getTitle(), nameTitile);
+    @Допустим("Проверяет название главной на соответствие {string}")
+    public void pageTitleCheck(String nameTitileHome) {
+        Assert.assertEquals(getWebDriver().getTitle(), nameTitileHome);
     }
 
     @Допустим("Переходит через верхнее меню во вклады")
     public void переходитЧерезВерхнееМенюВоВклады() {
-
+        WebElement contriburions = $(By.xpath("//span[text()='Вклады']"));
+        Selenide.actions().moveToElement(contriburions).perform();
+        $(By.xpath("//li[@class='lg-menu__sub-item']/a[text()='Вклады']")).click();
     }
 
-    @Допустим("Проверяет название страницы на соответствие {string}")
-    public void проверяетНазваниеСтраницыНаСоответствие(String string) {
-
+    @Допустим("Проверяет название страницы на Вклады {string}")
+    public void pageTitleContributionCheck(String nameTitileContribution) {
+        Assert.assertEquals(getWebDriver().getTitle(), nameTitileContribution);
     }
 
     @Допустим("Переходит на вкладку Подобрать вклад")
-    public void переходитНаВкладкуПодобратьВклад() {
-
+    public void goTitleContribution() {
+        $(By.xpath("//a[text()='Подобрать вклад']")).click();
     }
 
     @Допустим("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
