@@ -1,46 +1,91 @@
 package work25.stepsCucumber;
 
-import io.cucumber.java.ru.Дано;
-import io.cucumber.java.ru.Затем;
-import io.cucumber.java.ru.Когда;
-import io.cucumber.java.ru.Тогда;
-import work23.LoginPage;
-import work23.SmsConfirmationPage;
+import io.cucumber.java.ru.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class GoogleSteps {
-    @Когда("пользователь входит на сайт")
-    public void пользователь_входит_на_сайт() {
+
+    private WebDriver webDriver;
+
+    @Допустим("пользователь входит на сайт")
+
+    public void пользовательВходитНаСайт() {
         open("https://idemo.bspb.ru/");
-        LoginPage login = new LoginPage();
-        login.verificationTitile("Интернет банк - Банк Санкт-Петербург")
-                .loginInput("demo")
-                .passwordInput("demo")
-                .loginButton();
     }
 
-    @Затем("вводит логин")
-    public void вводит_логин() {
-        SmsConfirmationPage smsConfirmationPage = new SmsConfirmationPage();
-        smsConfirmationPage.otpCode("0000")
-                .inputButton();
+    @Допустим("очищает поле логин")
+    public void очищаетПолеЛогин() {
+        $(By.name("username")).clear();
+    }
+
+    @Допустим("вводит логин")
+    public void вводитЛогин() {
+        $(By.name("username")).sendKeys("demo");
+    }
+
+    @Допустим("очищает поле пароль")
+    public void очищаетПолеПароль() {
+        $(By.name("password")).clear();
+    }
+
+    @Допустим("вводит парль")
+    public void вводитПарль() {
+        $(By.name("password")).setValue("demo");
+    }
+
+    @Допустим("нажимает кнопку войти на странице логина")
+    public void нажимаетКнопкуВойтиНаСтраницеЛогина() {
+        $(By.id("login-button")).click();
+    }
+
+    @Допустим("открывается страница подтверждения")
+    public void открываетсяСтраницаПодтверждения() {
+        Assert.assertEquals(getWebDriver().getTitle(), "Интернет банк - Банк Санкт-Петербург");
 
     }
 
-    @Затем("вводит парль")
-    public void вводит_парль() {
-        System.out.println("1");
+    @Допустим("очищает поле подтверждения смс")
+    public void очищаетПолеПодтвержденияСмс() {
+        $(By.name("otpCode")).clear();
     }
 
-    @Затем("нажимает кнопку войти")
-    public void нажимает_кнопку_войти() {
-
-        System.out.println("2");
+    @Допустим("пользователь вводит код из смс")
+    public void пользовательВводитКодИзСмс() {
+        $(By.name("otpCode")).setValue("0000");
     }
 
-    @Затем("открывается страница подтверждения")
-    public void открывается_страница_подтверждения() {
-        System.out.println("3");
+    @Допустим("нажимает кнопку войти на странице подтверждения кода из смс")
+    public void нажимаетКнопкуВойтиНаСтраницеПодтвержденияКодаИзСмс() {
+        $(By.xpath("//button[@id='login-otp-button']")).click();
+    }
+
+    @Допустим("переходит во вкладку {string} через верхнее меню")
+    public void переходитВоВкладкуЧерезВерхнееМеню(String string) {
+        $(By.id("bank-overview")).click();
+    }
+
+    @Допустим("проверяет что сумма в блоке {string} отображается в формате {string}")
+    public void проверяетЧтоСуммаВБлокеОтображаетсяВФормате(String string, String string2) {
+        $((By.xpath("//div[2]/div/div/span/span[@class='amount')]"))).shouldHave(text("2 718 764.83 ₽"));
+    }
+
+    @Допустим("наводит курсор на сумму в блоке «Финансовая свобода» и проверяется появление суммы")
+    public void наводитКурсорНаСуммуВБлокеФинансоваяСвободаИПроверяетсяПоявлениеСуммы() {
+        WebElement amount = $(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
+        WebElement myMoney = $(By.className("my-assets"));
+        new Actions(webDriver).moveToElement(amount).perform();
+        new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOf(myMoney));
+        Assert.assertEquals(myMoney.getText(), "Моих средств 2 936 972.64 ₽");
     }
 }
