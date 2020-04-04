@@ -15,56 +15,71 @@ public class Work25Steps {
 
     @Допустим("пользователь входит на сайт")
     public void opensSite() {
-        open("https://idemo.bspb.ru/");
+        open("https://www.sberbank.ru");
     }
 
-    @Допустим("вводит логин {string}")
-    public void enterlogin(String loginValue) {
-        $(By.name("username")).clear();
-        $(By.name("username")).sendKeys(loginValue);
+    @Допустим("Проверяет название страницы на соответствие {string}")
+    public void pageTitleCheck(String nameTitile) {
+        Assert.assertEquals(getWebDriver().getTitle(), nameTitile);
     }
 
-    @Допустим("вводит парль {string}")
-    public void enterPassword(String passwordValue) {
-        $(By.name("password")).clear();
-        $(By.name("password")).setValue(passwordValue);
+    @Допустим("Переходит через верхнее меню во вклады")
+    public void переходитЧерезВерхнееМенюВоВклады() {
+
     }
 
-    @Допустим("нажимает кнопку войти на странице логина")
-    public void clicksLoginButton() {
-        $(By.id("login-button")).click();
+    @Допустим("Проверяет название страницы на соответствие {string}")
+    public void проверяетНазваниеСтраницыНаСоответствие(String string) {
+
     }
 
-    @Допустим("открывается страница подтверждения")
-    public void pageTitleCheck() {
-        Assert.assertEquals(getWebDriver().getTitle(), "Интернет банк - Банк Санкт-Петербург");
+    @Допустим("Переходит на вкладку Подобрать вклад")
+    public void переходитНаВкладкуПодобратьВклад() {
+
     }
 
-    @Допустим("пользователь вводит код из смс {string}")
-    public void smsCodeInput(String code) {
-        $(By.name("otpCode")).clear();
-        $(By.name("otpCode")).setValue(code);
+    @Допустим("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
+    public void проверкаОтображениеЧекБоксовХочуСнятьХочуПополнитьОнлайнИЯПенсионер() {
+
     }
 
-    @Допустим("нажимает кнопку войти на странице подтверждения кода из смс")
-    public void clicksButtonAfterEnteringSms() {
-        $(By.xpath("//button[@id='login-otp-button']")).click();
+    @Допустим("ПРоверка что чек бокс Онлайн установлен")
+    public void проверкаЧтоЧекБоксОнлайнУстановлен() {
+
     }
 
-    @Допустим("переходит во вкладку обзор через верхнее меню")
-    public void goToTheOverviewTab() {
-        $(By.id("bank-overview")).click();
+    @Допустим("Проверка что вкладки  Сохраняй, Пополняй и Управляй отображаются")
+    public void проверкаЧтоВкладкиСохраняйПополняйИУправляйОтображаются() {
+
     }
 
-    @Допустим("проверить наличие суммы {string}")
-    public void checkAmount(String mySumm) {
-        $(By.xpath("//span[@class='amount']")).shouldHave(text(mySumm));
+    @Допустим("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
+    public void пользовательПроставляеЧекБокыХочуСниматьИХочуПополнять() {
+
     }
-    
-    @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы {string}")
-    public void hoverOverTheAmount(String money) {
-        WebElement myMoney = $(By.className("my-assets"));
-        Selenide.actions().moveToElement(myMoney).perform();
-        Assert.assertEquals(myMoney.getText(), money);
+
+    @Допустим("Проверка что вклады Созраняй и Пополняй исчезли")
+    public void проверкаЧтоВкладыСозраняйИПополняйИсчезли() {
+
+    }
+
+    @Допустим("Проверка что отображается только вклад Управляй")
+    public void проверкаЧтоОтображаетсяТолькоВкладУправляй() {
+
+    }
+
+    @Допустим("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
+    public void пользовательНажимаетНаКнопкуПодроблееУВкладаУправляй() {
+
+    }
+
+    @Допустим("Проверка открытия в новом окне  страница с названием {string}")
+    public void проверкаОткрытияВНовомОкнеСтраницаСНазванием(String string) {
+
+    }
+
+    @Допустим("Проверка отображение на странице надписи Вклад Управляй")
+    public void проверкаОтображениеНаСтраницеНадписиВкладУправляй() {
+
     }
 }
