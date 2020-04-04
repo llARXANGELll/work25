@@ -61,10 +61,10 @@ public class Work25Steps {
         $(By.xpath("//span[@class='amount']")).shouldHave(text(mySumm));
     }
     
-    @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
-    public void hoverOverTheAmount() {
+    @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы {string}")
+    public void hoverOverTheAmount(String money) {
         WebElement myMoney = $(By.className("my-assets"));
         Selenide.actions().moveToElement(myMoney).perform();
-        Assert.assertEquals(myMoney.getText(), "Моих средств 2 936 972.64 ₽");
+        Assert.assertEquals(myMoney.getText(), money);
     }
 }
