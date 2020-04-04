@@ -1,5 +1,6 @@
 package work25.stepsCucumber;
 
+import com.codeborne.selenide.Selenide;
 import io.cucumber.java.ru.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,6 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class GoogleSteps {
 
-    private WebDriver webDriver;
 
     @Допустим("пользователь входит на сайт")
 
@@ -82,10 +82,8 @@ public class GoogleSteps {
 
     @Допустим("наводит курсор на сумму в блоке Финансовая свобода и проверяется появление суммы")
     public void наводитКурсорНаСуммуВБлокеФинансоваяСвободаИПроверяетсяПоявлениеСуммы() {
-        WebElement amount = $(By.xpath("//div[2]/div/div/span/span[normalize-space(@class='amount')]"));
         WebElement myMoney = $(By.className("my-assets"));
-        new Actions(webDriver).moveToElement(amount).perform();
-        new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOf(myMoney));
+        Selenide.actions().moveToElement(myMoney).perform();
         Assert.assertEquals(myMoney.getText(), "Моих средств 2 936 972.64 ₽");
     }
 }
