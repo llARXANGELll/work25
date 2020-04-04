@@ -80,7 +80,7 @@
                             <value>${basedir}/target/allure-results</value>
                         </property>
                     </systemProperties>
-                    <suiteXmlFiles>src/test/resources/suite/work25.xml</suiteXmlFiles>
+                    <suiteXmlFiles>src/test/resources/suite/work27.xml</suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>
