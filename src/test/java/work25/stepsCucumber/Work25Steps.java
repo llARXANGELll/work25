@@ -13,22 +13,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Work25Steps {
 
-    @Допустим("пользователь входит на сайт")
-    public void opensSite() {
-        open("https://idemo.bspb.ru/");
-    }
 
-    @Допустим("вводит логин {string}")
-    public void enterlogin(String loginValue) {
-        $(By.name("username")).clear();
-        $(By.name("username")).sendKeys(loginValue);
-    }
-
-    @Допустим("вводит парль {string}")
-    public void enterPassword(String passwordValue) {
-        $(By.name("password")).clear();
-        $(By.name("password")).setValue(passwordValue);
-    }
 
     @Допустим("нажимает кнопку войти на странице логина")
     public void clicksLoginButton() {

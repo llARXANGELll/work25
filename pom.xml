@@ -69,7 +69,7 @@
                 <configuration>
                     <properties>
                         <argLine>
-                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                             -Dcucumber.options="--plugin io.qameta.allure.cucumber4jvm.AllureCucumber5Jvm"
                         </argLine>
                         <allure.results.directory>target/allure-results</allure.results.directory>
