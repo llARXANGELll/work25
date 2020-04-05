@@ -18,16 +18,16 @@ public class OverviewTabPage {
     }
 
     @Step("Проверяет отображаемую сумму")
-    public OverviewTabPage amountMoney () {
-        $(By.xpath("//span[@class='amount']")).shouldHave(text("2 718 764.83 ₽"));
+    public OverviewTabPage amountMoney (String mySum) {
+        $(By.xpath("//span[@class='amount']")).shouldHave(text(mySum));
         return this;
     }
 
     @Step("Проверяет появляющееся сумму при наведении мышки")
-    public OverviewTabPage myMoney () {
+    public OverviewTabPage myMoney (String MyMone) {
         WebElement myMoney = $(By.className("my-assets"));
         Selenide.actions().moveToElement(myMoney).perform();
-        Assert.assertEquals(myMoney.getText(), "Моих средств 2 936 972.64 ₽");
+        Assert.assertEquals(myMoney.getText(), MyMone);
         return this;
     }
 }

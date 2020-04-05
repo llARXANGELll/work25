@@ -25,4 +25,9 @@ public class LoginSteps {
     public void enterPassword(String passwordValue) {
         loginPage.setPassword(passwordValue);
     }
+
+    @Допустим("нажимает кнопку войти на странице логина")
+    public void clicksLoginButton() {
+        loginPage.buttonLogin();
+    }
 }
