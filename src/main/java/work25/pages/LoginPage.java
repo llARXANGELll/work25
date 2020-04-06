@@ -1,10 +1,8 @@
 package work25.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.ru.Допустим;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -12,6 +10,7 @@ public class LoginPage {
 
     SelenideElement loginInput = $(By.name("username"));
     SelenideElement passwordInput = $(By.name("password"));
+    SelenideElement buttonLogin = $(By.id("login-button"));
 
     @Step("Открывает сайт")
     public LoginPage openSuite() {
@@ -34,8 +33,8 @@ public class LoginPage {
     }
 
     @Step("Нажимает кнопку Войти")
-    public LoginPage buttonLogin() {
-        $(By.id("login-button")).click();
+    public LoginPage clickLoginButton() {
+        buttonLogin.click();
         return this;
     }
 }

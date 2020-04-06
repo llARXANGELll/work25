@@ -1,12 +1,7 @@
 package work25.stepsCucumber;
 
 import io.cucumber.java.ru.Допустим;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import work25.pages.SmsConfirmationPage;
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class SmsCinfirmationPageSteps {
 
@@ -24,6 +19,6 @@ public class SmsCinfirmationPageSteps {
 
     @Допустим("нажимает кнопку войти на странице подтверждения кода из смс")
     public void clicksButtonAfterEnteringSms() {
-        smsConfirmationPage.inputButtonCode();
+        smsConfirmationPage.inputButtonCodeClick();
     }
 }

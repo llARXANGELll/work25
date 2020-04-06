@@ -1,13 +1,17 @@
 package work25.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class SmsConfirmationPage {
+
+    SelenideElement codeEntryField = $(By.name("otpCode"));
+    SelenideElement clickCodeButtonLogin = $(By.xpath("//button[@id='login-otp-button']"));
+
 
     @Step("Проверяет название страницы")
     public SmsConfirmationPage  pageTitleCheck() {
@@ -17,14 +21,14 @@ public class SmsConfirmationPage {
 
     @Step("Очищаем поле пароль и вводим новый")
     public SmsConfirmationPage smsCode (String otpCode) {
-        $(By.name("otpCode")).clear();
-        $(By.name("otpCode")).setValue(otpCode);
+        codeEntryField.clear();
+        codeEntryField.setValue(otpCode);
         return this;
     }
 
     @Step("Нажимаем кнопку войти")
-    public SmsConfirmationPage inputButtonCode () {
-        $(By.xpath("//button[@id='login-otp-button']")).click();
+    public SmsConfirmationPage inputButtonCodeClick () {
+        clickCodeButtonLogin.click();
         return this;
     }
 }

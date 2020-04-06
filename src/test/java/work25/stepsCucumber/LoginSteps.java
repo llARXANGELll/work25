@@ -1,11 +1,7 @@
 package work25.stepsCucumber;
 
 import io.cucumber.java.ru.Допустим;
-import org.openqa.selenium.By;
 import work25.pages.LoginPage;
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class LoginSteps {
 
@@ -28,6 +24,6 @@ public class LoginSteps {
 
     @Допустим("нажимает кнопку войти на странице логина")
     public void clicksLoginButton() {
-        loginPage.buttonLogin();
+        loginPage.clickLoginButton();
     }
 }
