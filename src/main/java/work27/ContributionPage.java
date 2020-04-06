@@ -25,10 +25,6 @@ public class ContributionPage {
     public void checkboxAvailability(List<String> checkboxies) {
         switchTo().frame(0);
         List<SelenideElement> checkboxLabel = $$(By.xpath("//input[@aria-checked]"));
-
-        Assert.assertTrue(checkboxLabel.get(2).equals("true"));
-
-
-        $(By.cssSelector("dsd")).clear();
+        checkboxLabel.get(2).equals($(By.xpath("//input[@aria-checked='true']")));
     }
 }
