@@ -19,15 +19,17 @@ public class OverviewTabPage {
 
     @Step("Проверяет отображаемую сумму")
     public OverviewTabPage amountMoney (String mySum) {
-        $(By.xpath("//span[@class='amount']")).shouldHave(text(mySum));
+        String sum = $(By.xpath("//span[@class='amount']")).getText();
+        Assert.assertTrue(sum.matches(mySum));
         return this;
     }
 
     @Step("Проверяет появляющееся сумму при наведении мышки")
-    public OverviewTabPage myMoney (String MyMone) {
+    public OverviewTabPage myMoney (String setFormat) {
         WebElement myMoney = $(By.className("my-assets"));
         Selenide.actions().moveToElement(myMoney).perform();
-        Assert.assertEquals(myMoney.getText(), MyMone);
+        String currentMoney = myMoney.getText();
+        Assert.assertTrue(currentMoney.matches(setFormat));
         return this;
     }
 }
