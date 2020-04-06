@@ -5,6 +5,7 @@ import io.cucumber.java.ru.Допустим;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import work27.ContributionPage;
 import work27.HomePage;
 
 import static com.codeborne.selenide.Condition.text;
@@ -15,7 +16,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class Work27Steps {
 
     HomePage homePage = new HomePage();
-
+    ContributionPage contributionPage = new ContributionPage();
     @Допустим("пользователь входит на сайт {string}")
     public void opensSite(String suite) {
         open(suite);
@@ -38,12 +39,12 @@ public class Work27Steps {
 
     @Допустим("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
-        $(By.xpath("//a[text()='Подобрать вклад']")).click();
+        contributionPage.goTitleContribution();
     }
 
     @Допустим("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
     public void проверкаОтображениеЧекБоксовХочуСнятьХочуПополнитьОнлайнИЯПенсионер() {
-        $(By.xpath("//label[3]/input[@aria-checked='true']")).click();
+        contributionPage.checkboxAvailability();
     }
 
     @Допустим("ПРоверка что чек бокс Онлайн установлен")
