@@ -5,6 +5,7 @@ import io.cucumber.java.ru.Допустим;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import work27.HomePage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -13,9 +14,11 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Work27Steps {
 
-    @Допустим("пользователь входит на сайт")
-    public void opensSite() {
-        open("https://www.sberbank.ru");
+    HomePage homePage = new HomePage();
+
+    @Допустим("пользователь входит на сайт {string}")
+    public void opensSite(String suite) {
+        open(suite);
     }
 
     @Допустим("Проверяет название главной на соответствие {string}")
@@ -24,10 +27,8 @@ public class Work27Steps {
     }
 
     @Допустим("Переходит через верхнее меню во вклады")
-    public void переходитЧерезВерхнееМенюВоВклады() {
-        WebElement contriburions = $(By.xpath("//span[text()='Вклады']"));
-        Selenide.actions().moveToElement(contriburions).perform();
-        $(By.xpath("//li[@class='lg-menu__sub-item']/a[text()='Вклады']")).click();
+    public void transitionToDeposits() {
+        homePage.transitionToDeposits();
     }
 
     @Допустим("Проверяет название страницы на Вклады {string}")
