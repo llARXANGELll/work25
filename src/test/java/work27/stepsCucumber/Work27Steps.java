@@ -1,6 +1,7 @@
 package work27.stepsCucumber;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import io.cucumber.java.ru.Допустим;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,9 +9,11 @@ import org.testng.Assert;
 import work27.ContributionPage;
 import work27.HomePage;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Work27Steps {
@@ -42,10 +45,13 @@ public class Work27Steps {
         contributionPage.goTitleContribution();
     }
 
-    @Допустим("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
-    public void проверкаОтображениеЧекБоксовХочуСнятьХочуПополнитьОнлайнИЯПенсионер() {
-        contributionPage.checkboxAvailability();
+    @Допустим("Проверка отображение чек боксов")
+    public void проверкаОтображениеЧекБоксовХочуСнятьХочуПополнитьОнлайнИЯПенсионер(List<String> checkboxies) {
+        contributionPage.checkboxAvailability(checkboxies);
+
     }
+
+
 
     @Допустим("ПРоверка что чек бокс Онлайн установлен")
     public void проверкаЧтоЧекБоксОнлайнУстановлен() {
