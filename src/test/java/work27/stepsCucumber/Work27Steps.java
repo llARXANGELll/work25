@@ -46,21 +46,19 @@ public class Work27Steps {
     }
 
     @Допустим("Проверка отображение чек боксов")
-    public void проверкаОтображениеЧекБоксовХочуСнятьХочуПополнитьОнлайнИЯПенсионер(List<String> checkboxies) {
+    public void checkboxAvailability(List<String> checkboxies) {
         contributionPage.checkboxAvailability(checkboxies);
 
     }
 
-
-
-    @Допустим("ПРоверка что чек бокс Онлайн установлен")
-    public void проверкаЧтоЧекБоксОнлайнУстановлен() {
-
+    @Допустим("Проверка что чек бокс Онлайн установлен")
+    public void checkboxAvailabilityCheckboxOnline() {
+        contributionPage.checkboxAvailabilityCheckboxOnline();
     }
 
-    @Допустим("Проверка что вкладки  Сохраняй, Пополняй и Управляй отображаются")
-    public void проверкаЧтоВкладкиСохраняйПополняйИУправляйОтображаются() {
-
+    @Допустим("Проверка что отображаются")
+    public void displayTabs(List<String> tabs) {
+        contributionPage.displayTabs(tabs);
     }
 
     @Допустим("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
