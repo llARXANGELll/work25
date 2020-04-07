@@ -2,6 +2,7 @@ package work27.stepsCucumber;
 
 import io.cucumber.java.ru.Допустим;
 import org.testng.Assert;
+import work27.DepositManagePage;
 import work27.DepositPage;
 import work27.HomePage;
 
@@ -15,6 +16,8 @@ public class Work27Steps {
 
     HomePage homePage = new HomePage();
     DepositPage depositPage = new DepositPage();
+    DepositManagePage depositManagePage = new DepositManagePage();
+
     @Допустим("пользователь входит на сайт {string}")
     public void opensSite(String suite) {
         open(suite);
@@ -62,27 +65,28 @@ public class Work27Steps {
     }
 
     @Допустим("Проверка что вкладки пропали")
-    public void tabsAreGone(List<String> tabs) {
+    public void depositAreGone(List<String> tabs) {
         depositPage.tabsAreGone(tabs);
     }
 
-    @Допустим("Проверка что отображается только вклад Управляй")
-    public void проверкаЧтоОтображаетсяТолькоВкладУправляй() {
-
+    @Допустим("Проверка что отображается только вклад")
+    public void checkDepositManage(List<String> tabs) {
+        depositPage.checkTabsManage(tabs);
     }
 
     @Допустим("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
-    public void пользовательНажимаетНаКнопкуПодроблееУВкладаУправляй() {
-
+    public void clickDetailsTabsManage() {
+        depositPage.clickDetailsTabsManage();
     }
 
     @Допустим("Проверка открытия в новом окне  страница с названием {string}")
-    public void проверкаОткрытияВНовомОкнеСтраницаСНазванием(String string) {
-
+    public void openWindowDepositManage(String getNameTitileDepositManage) {
+        switchTo().window(1);
+        Assert.assertEquals(getWebDriver().getTitle(), getNameTitileDepositManage);
     }
 
-    @Допустим("Проверка отображение на странице надписи Вклад Управляй")
-    public void проверкаОтображениеНаСтраницеНадписиВкладУправляй() {
-
+    @Допустим("Проверка отображение на странице надписи")
+    public void checkDepositManageTitle(List<String> depositManageTitle) {
+        depositManagePage.checkDepositManageTitle(depositManageTitle);
     }
 }

@@ -16,7 +16,8 @@ public class DepositPage {
     SelenideElement goTitleContribution = $(By.xpath("//a[text()='Подобрать вклад']"));
     SelenideElement checkboxOnline = $(By.xpath("//input[@aria-checked='true']"));
     List<SelenideElement> checkboxLabel = $$(By.xpath("//input[@aria-checked]"));
-    List<SelenideElement> tab = $$(By.cssSelector(".offered-products__header"));
+    List<SelenideElement> tabsDeposit = $$(By.cssSelector(".offered-products__header"));
+    SelenideElement depositmanageClickDetails = $(By.xpath("//a[@data-test-id='Button-white']"));
 
     @Step("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
@@ -35,9 +36,9 @@ public class DepositPage {
 
     @Step("Проверка что отображаются вкладки")
     public void displayTabs(List<String> tabs) {
-        Assert.assertTrue(tab.get(0).getText().equals(tabs.get(0)));
-        Assert.assertTrue(tab.get(1).getText().equals(tabs.get(1)));
-        Assert.assertTrue(tab.get(2).getText().equals(tabs.get(2)));
+        Assert.assertTrue(tabsDeposit.get(0).getText().equals(tabs.get(0)));
+        Assert.assertTrue(tabsDeposit.get(1).getText().equals(tabs.get(1)));
+        Assert.assertTrue(tabsDeposit.get(2).getText().equals(tabs.get(2)));
     }
 
     @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
@@ -48,8 +49,18 @@ public class DepositPage {
 
     @Step("Проверка что вклад Сохраняй и Пополняй пропал ")
     public void tabsAreGone(List<String> tabs) {
-        Assert.assertFalse(tab.get(0).getText().equals(tabs.get(0)));
-        Assert.assertFalse(tab.get(0).getText().equals(tabs.get(1)));
-        Assert.assertTrue(tab.get(0).getText().equals(tabs.get(2)));
+        Assert.assertFalse(tabsDeposit.get(0).getText().equals(tabs.get(0)));
+        Assert.assertFalse(tabsDeposit.get(0).getText().equals(tabs.get(1)));
+
+    }
+
+    @Step("Проверка что отображается только вклад Управляй")
+    public void checkTabsManage(List<String> tabs) {
+        Assert.assertTrue(tabsDeposit.get(0).getText().equals(tabs.get(0)));
+    }
+
+    @Step("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
+    public void clickDetailsTabsManage() {
+        depositmanageClickDetails.click();
     }
 }
