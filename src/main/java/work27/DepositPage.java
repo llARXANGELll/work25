@@ -11,12 +11,12 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class ContributionPage {
+public class DepositPage {
 
     SelenideElement goTitleContribution = $(By.xpath("//a[text()='Подобрать вклад']"));
     SelenideElement checkboxOnline = $(By.xpath("//input[@aria-checked='true']"));
     List<SelenideElement> checkboxLabel = $$(By.xpath("//input[@aria-checked]"));
-    List<SelenideElement> tab = $$(By.className("offered-products__item"));
+    List<SelenideElement> tab = $$(By.cssSelector(".offered-products__header"));
 
     @Step("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
@@ -30,14 +30,14 @@ public class ContributionPage {
 
     @Step("Проверка что чек бокс Онлайн установлен")
     public void checkboxAvailabilityCheckboxOnline() {
-        checkboxLabel.get(2).equals(checkboxOnline);
+        Assert.assertTrue(checkboxLabel.get(2).equals(checkboxOnline));
     }
 
     @Step("Проверка что отображаются вкладки")
     public void displayTabs(List<String> tabs) {
-        tab.get(0).equals(tabs.get(0));
-        tab.get(1).equals(tabs.get(1));
-        tab.get(2).equals(tabs.get(2));
+        Assert.assertTrue(tab.get(0).getText().equals(tabs.get(0)));
+        Assert.assertTrue(tab.get(1).getText().equals(tabs.get(1)));
+        Assert.assertTrue(tab.get(2).getText().equals(tabs.get(2)));
     }
 
     @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
@@ -46,9 +46,10 @@ public class ContributionPage {
         checkboxLabel.get(1).click();
     }
 
-    @Step("Проверка что вклад Созрания и Пополняй пропал ")
+    @Step("Проверка что вклад Сохраняй и Пополняй пропал ")
     public void tabsAreGone(List<String> tabs) {
-        tab.get(0).equals(tabs.get(0));
-        tab.get(0).equals(tabs.get(1));
+        Assert.assertFalse(tab.get(0).getText().equals(tabs.get(0)));
+        Assert.assertFalse(tab.get(0).getText().equals(tabs.get(1)));
+        Assert.assertTrue(tab.get(0).getText().equals(tabs.get(2)));
     }
 }

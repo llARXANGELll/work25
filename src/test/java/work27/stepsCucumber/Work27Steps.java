@@ -1,17 +1,12 @@
 package work27.stepsCucumber;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import io.cucumber.java.ru.Допустим;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import work27.ContributionPage;
+import work27.DepositPage;
 import work27.HomePage;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -19,7 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class Work27Steps {
 
     HomePage homePage = new HomePage();
-    ContributionPage contributionPage = new ContributionPage();
+    DepositPage depositPage = new DepositPage();
     @Допустим("пользователь входит на сайт {string}")
     public void opensSite(String suite) {
         open(suite);
@@ -42,33 +37,33 @@ public class Work27Steps {
 
     @Допустим("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
-        contributionPage.goTitleContribution();
+        depositPage.goTitleContribution();
     }
 
     @Допустим("Проверка отображение чек боксов")
     public void checkboxAvailability(List<String> checkboxies) {
-        contributionPage.checkboxAvailability(checkboxies);
+        depositPage.checkboxAvailability(checkboxies);
 
     }
 
     @Допустим("Проверка что чек бокс Онлайн установлен")
     public void checkboxAvailabilityCheckboxOnline() {
-        contributionPage.checkboxAvailabilityCheckboxOnline();
+        depositPage.checkboxAvailabilityCheckboxOnline();
     }
 
     @Допустим("Проверка что отображаются")
     public void displayTabs(List<String> tabs) {
-        contributionPage.displayTabs(tabs);
+        depositPage.displayTabs(tabs);
     }
 
     @Допустим("Пользователь проставляет чек бокы")
     public void settingСheckboxes(List<String> checkboxies) {
-        contributionPage.settingСheckboxes(checkboxies);
+        depositPage.settingСheckboxes(checkboxies);
     }
 
     @Допустим("Проверка что вкладки пропали")
     public void tabsAreGone(List<String> tabs) {
-        contributionPage.tabsAreGone(tabs);
+        depositPage.tabsAreGone(tabs);
     }
 
     @Допустим("Проверка что отображается только вклад Управляй")
