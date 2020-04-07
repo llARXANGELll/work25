@@ -61,14 +61,14 @@ public class Work27Steps {
         contributionPage.displayTabs(tabs);
     }
 
-    @Допустим("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
-    public void пользовательПроставляеЧекБокыХочуСниматьИХочуПополнять() {
-
+    @Допустим("Пользователь проставляет чек бокы")
+    public void settingСheckboxes(List<String> checkboxies) {
+        contributionPage.settingСheckboxes(checkboxies);
     }
 
-    @Допустим("Проверка что вклады Созраняй и Пополняй исчезли")
-    public void проверкаЧтоВкладыСозраняйИПополняйИсчезли() {
-
+    @Допустим("Проверка что вкладки пропали")
+    public void tabsAreGone(List<String> tabs) {
+        contributionPage.tabsAreGone(tabs);
     }
 
     @Допустим("Проверка что отображается только вклад Управляй")

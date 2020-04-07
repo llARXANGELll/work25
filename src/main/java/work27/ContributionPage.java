@@ -39,4 +39,16 @@ public class ContributionPage {
         tab.get(1).equals(tabs.get(1));
         tab.get(2).equals(tabs.get(2));
     }
+
+    @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
+    public void settingСheckboxes(List<String> checkboxies) {
+        checkboxLabel.get(0).click();
+        checkboxLabel.get(1).click();
+    }
+
+    @Step("Проверка что вклад Созрания и Пополняй пропал ")
+    public void tabsAreGone(List<String> tabs) {
+        tab.get(0).equals(tabs.get(0));
+        tab.get(0).equals(tabs.get(1));
+    }
 }
