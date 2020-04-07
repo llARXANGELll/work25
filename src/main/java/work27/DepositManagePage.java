@@ -1,13 +1,10 @@
 package work27;
 
 import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.ru.Допустим;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-
 import java.util.List;
-
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DepositManagePage {

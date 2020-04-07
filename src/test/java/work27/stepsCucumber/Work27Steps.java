@@ -5,11 +5,8 @@ import org.testng.Assert;
 import work27.DepositManagePage;
 import work27.DepositPage;
 import work27.HomePage;
-
 import java.util.List;
-
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Work27Steps {
