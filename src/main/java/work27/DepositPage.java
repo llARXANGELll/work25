@@ -1,5 +1,6 @@
 package work27;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -25,10 +26,17 @@ public class DepositPage {
     @Step("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
     public void checkboxAvailability(List<String> checkboxies) {
         switchTo().frame(0);
-        Assert.assertTrue(getCheckboxText.get(0).getText().equals(checkboxies.get(0)));
-        Assert.assertTrue(getCheckboxText.get(1).getText().equals(checkboxies.get(1)));
-        Assert.assertTrue(getCheckboxText.get(2).getText().equals(checkboxies.get(2)));
-        Assert.assertTrue(getCheckboxText.get(3).getText().equals(checkboxies.get(3)));
+//        boolean  checkbox = false;
+        for (SelenideElement allCheckbox : getCheckboxText) {
+            if (getCheckboxText.get().getText() == checkboxies.get()) {
+                return true;
+            }
+            else return false;
+        }
+//        Assert.assertTrue(getCheckboxText.get(0).getText().equals(checkboxies.get(0)));
+//        Assert.assertTrue(getCheckboxText.get(1).getText().equals(checkboxies.get(1)));
+//        Assert.assertTrue(getCheckboxText.get(2).getText().equals(checkboxies.get(2)));
+//        Assert.assertTrue(getCheckboxText.get(3).getText().equals(checkboxies.get(3)));
     }
 
     @Step("Проверка что чек бокс Онлайн установлен")
