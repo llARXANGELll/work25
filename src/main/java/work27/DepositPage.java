@@ -3,44 +3,61 @@ package work27;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import javafx.scene.control.CheckBox;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.IFactoryAnnotation;
+
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class DepositPage {
 
     SelenideElement goTitleContribution = $(By.xpath("//a[text()='Подобрать вклад']"));
-    SelenideElement checkboxOnline = $(By.xpath("//input[@aria-checked='true']"));
-    List<SelenideElement> checkboxLabel = $$(By.xpath("//input[@aria-checked]"));
     List<SelenideElement> tabsDeposit = $$(By.cssSelector(".offered-products__header"));
     SelenideElement depositmanageClickDetails = $(By.xpath("//a[@data-test-id='Button-white']"));
-    List<SelenideElement> getCheckboxText = $$(By.cssSelector(".kitt-checkbox__text"));
-
+    SelenideElement checkboxes = $(By.xpath("//div[@class='kitt-checkbox-group kitt-checkbox-group_orientation_horizontal']"));
 
     @Step("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
         goTitleContribution.click();
     }
 
-    @Step("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
-    public void checkboxAvailability(List<String> checkboxies) {
+    public void checkboxAvailability(List<String> checkboxTexts) {
         switchTo().frame(0);
-//        boolean  checkbox = false;
-        for (SelenideElement allCheckbox : getCheckboxText) {
-            if (getCheckboxText.get().getText() == checkboxies.get()) {
-                return true;
+        checkboxes = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
+        for (SelenideElement checbox : checkboxes) {
+            if (!checkboxTexts.contains(checbox.getText().toLowerCase())) {
+
             }
-            else return false;
         }
-//        Assert.assertTrue(getCheckboxText.get(0).getText().equals(checkboxies.get(0)));
-//        Assert.assertTrue(getCheckboxText.get(1).getText().equals(checkboxies.get(1)));
-//        Assert.assertTrue(getCheckboxText.get(2).getText().equals(checkboxies.get(2)));
-//        Assert.assertTrue(getCheckboxText.get(3).getText().equals(checkboxies.get(3)));
+        checkboxTexts = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
+//        for (int i = 0; i < checkboxTexts.size(); i++) {
+//            checkboxTexts.set(i, checkboxTexts.get(i).toLowerCase());
+//        }
+//        new CheckBox();
+//        for (SelenideElement checkbox : checkboxes.$$(By.xpath("label"))) {
+//                if (!checkboxTexts.contains(checkbox.getText().toLowerCase())) {
+//                    throw new IllegalArgumentException("Нет чексбокса с текстом " + checkbox.getText());
+//                }
+        }
     }
 
-    @Step("Проверка что чек бокс Онлайн установлен")
-    public void checkboxAvailabilityCheckboxOnline() {
+    public void checkboxAvailabilityCheckboxOnline(String checkboxText) {
+        boolean checkboxFound = false;
+        for (SelenideElement checkbox : checkboxes.$$(By.xpath("label"))) {
+            if (checkbox.getText().toLowerCase().equals(checkboxText.toLowerCase())) {
+                checkboxFound = true;
+                Assert.assertEquals(checkbox.$("input").getAttribute("aria-checked"), "true", "Ожидаемый чексбокс отключен!");
+            }
+        }
+        if (!checkboxFound) {
+            throw new IllegalArgumentException("Не найден искомый чексбокс по тексту!");
+        }
         Assert.assertTrue(checkboxLabel.get(2).equals(checkboxOnline));
     }
 

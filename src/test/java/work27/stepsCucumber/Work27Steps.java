@@ -46,8 +46,8 @@ public class Work27Steps {
 
     }
 
-    @Допустим("Проверка что чек бокс Онлайн установлен")
-    public void checkboxAvailabilityCheckboxOnline() {
+    @Допустим("Проверка что чек бокс {string} установлен")
+    public void checkboxAvailabilityCheckboxOnline(String checkbox) {
         depositPage.checkboxAvailabilityCheckboxOnline();
     }
 
