@@ -14,6 +14,8 @@ public class DepositPage {
     List<SelenideElement> checkboxLabel = $$(By.xpath("//input[@aria-checked]"));
     List<SelenideElement> tabsDeposit = $$(By.cssSelector(".offered-products__header"));
     SelenideElement depositmanageClickDetails = $(By.xpath("//a[@data-test-id='Button-white']"));
+    List<SelenideElement> getCheckboxText = $$(By.cssSelector(".kitt-checkbox__text"));
+
 
     @Step("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
@@ -23,6 +25,10 @@ public class DepositPage {
     @Step("Проверка отображение чек боксов Хочу снять, Хочу пополнить, Онлайн и Я-пенсионер")
     public void checkboxAvailability(List<String> checkboxies) {
         switchTo().frame(0);
+        Assert.assertTrue(getCheckboxText.get(0).getText().equals(checkboxies.get(0)));
+        Assert.assertTrue(getCheckboxText.get(1).getText().equals(checkboxies.get(1)));
+        Assert.assertTrue(getCheckboxText.get(2).getText().equals(checkboxies.get(2)));
+        Assert.assertTrue(getCheckboxText.get(3).getText().equals(checkboxies.get(3)));
     }
 
     @Step("Проверка что чек бокс Онлайн установлен")
