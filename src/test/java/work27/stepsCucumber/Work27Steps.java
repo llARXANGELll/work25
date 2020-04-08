@@ -48,42 +48,42 @@ public class Work27Steps {
 
     @Допустим("Проверка что чек бокс {string} установлен")
     public void checkboxAvailabilityCheckboxOnline(String checkbox) {
-        depositPage.checkboxAvailabilityCheckboxOnline();
+        depositPage.checkboxAvailabilityCheckboxOnline(checkbox);
     }
 
     @Допустим("Проверка что отображаются")
     public void displayTabs(List<String> tabs) {
         depositPage.displayTabs(tabs);
     }
+//
+//    @Допустим("Пользователь проставляет чек бокы")
+//    public void settingСheckboxes(List<String> checkboxies) {
+//        depositPage.settingСheckboxes(checkboxies);
+//    }
 
-    @Допустим("Пользователь проставляет чек бокы")
-    public void settingСheckboxes(List<String> checkboxies) {
-        depositPage.settingСheckboxes(checkboxies);
-    }
-
-    @Допустим("Проверка что вкладки пропали")
-    public void depositAreGone(List<String> tabs) {
-        depositPage.tabsAreGone(tabs);
-    }
-
-    @Допустим("Проверка что отображается только вклад")
-    public void checkDepositManage(List<String> tabs) {
-        depositPage.checkTabsManage(tabs);
-    }
-
-    @Допустим("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
-    public void clickDetailsTabsManage() {
-        depositPage.clickDetailsTabsManage();
-    }
-
-    @Допустим("Проверка открытия в новом окне  страница с названием {string}")
-    public void openWindowDepositManage(String getNameTitileDepositManage) {
-        switchTo().window(1);
-        Assert.assertEquals(getWebDriver().getTitle(), getNameTitileDepositManage);
-    }
-
-    @Допустим("Проверка отображение на странице надписи")
-    public void checkDepositManageTitle(List<String> depositManageTitle) {
-        depositManagePage.checkDepositManageTitle(depositManageTitle);
-    }
+//    @Допустим("Проверка что вкладки пропали")
+//    public void depositAreGone(List<String> tabs) {
+//        depositPage.tabsAreGone(tabs);
+//    }
+//
+//    @Допустим("Проверка что отображается только вклад")
+//    public void checkDepositManage(List<String> tabs) {
+//        depositPage.checkTabsManage(tabs);
+//    }
+//
+//    @Допустим("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
+//    public void clickDetailsTabsManage() {
+//        depositPage.clickDetailsTabsManage();
+//    }
+//
+//    @Допустим("Проверка открытия в новом окне  страница с названием {string}")
+//    public void openWindowDepositManage(String getNameTitileDepositManage) {
+//        switchTo().window(1);
+//        Assert.assertEquals(getWebDriver().getTitle(), getNameTitileDepositManage);
+//    }
+//
+//    @Допустим("Проверка отображение на странице надписи")
+//    public void checkDepositManageTitle(List<String> depositManageTitle) {
+//        depositManagePage.checkDepositManageTitle(depositManageTitle);
+//    }
 }

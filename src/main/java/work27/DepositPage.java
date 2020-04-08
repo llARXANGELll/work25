@@ -29,13 +29,13 @@ public class DepositPage {
 
     public void checkboxAvailability(List<String> checkboxTexts) {
         switchTo().frame(0);
-        checkboxes = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
-        for (SelenideElement checbox : checkboxes) {
+        checkboxTexts = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
+        for (SelenideElement checbox : checkboxes.$$(By.xpath("label"))) {
             if (!checkboxTexts.contains(checbox.getText().toLowerCase())) {
-
+                throw new IllegalArgumentException("Нет чекбокса с текстом" + checbox.getText());
             }
         }
-        checkboxTexts = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
+//        checkboxTexts = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
 //        for (int i = 0; i < checkboxTexts.size(); i++) {
 //            checkboxTexts.set(i, checkboxTexts.get(i).toLowerCase());
 //        }
@@ -45,7 +45,6 @@ public class DepositPage {
 //                    throw new IllegalArgumentException("Нет чексбокса с текстом " + checkbox.getText());
 //                }
         }
-    }
 
     public void checkboxAvailabilityCheckboxOnline(String checkboxText) {
         boolean checkboxFound = false;
@@ -58,21 +57,27 @@ public class DepositPage {
         if (!checkboxFound) {
             throw new IllegalArgumentException("Не найден искомый чексбокс по тексту!");
         }
-        Assert.assertTrue(checkboxLabel.get(2).equals(checkboxOnline));
     }
 
     @Step("Проверка что отображаются вкладки")
-    public void displayTabs(List<String> tabs) {
-        Assert.assertTrue(tabsDeposit.get(0).getText().equals(tabs.get(0)));
-        Assert.assertTrue(tabsDeposit.get(1).getText().equals(tabs.get(1)));
-        Assert.assertTrue(tabsDeposit.get(2).getText().equals(tabs.get(2)));
+    public void displayTabs(List<String> nameTabs) {
+        nameTabs = nameTabs.stream().map(String::toLowerCase).collect(Collectors.toList());
+        for (SelenideElement tabs : tabsDeposit) {
+            if (!nameTabs.contains(tabs.getText().toLowerCase())) {
+                throw new IllegalArgumentException("Нет найдена вкладка с названием " + tabs.getText());
+            }
+        }
+
+//        Assert.assertTrue(tabsDeposit.get(0).getText().equals(tabs.get(0)));
+//        Assert.assertTrue(tabsDeposit.get(1).getText().equals(tabs.get(1)));
+//        Assert.assertTrue(tabsDeposit.get(2).getText().equals(tabs.get(2)));
     }
 
-    @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
-    public void settingСheckboxes(List<String> checkboxies) {
-        checkboxLabel.get(0).click();
-        checkboxLabel.get(1).click();
-    }
+//    @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
+//    public void settingСheckboxes(List<String> checkboxies) {
+//        checkboxLabel.get(0).click();
+//        checkboxLabel.get(1).click();
+//    }
 
     @Step("Проверка что вклад Сохраняй и Пополняй пропал ")
     public void tabsAreGone(List<String> tabs) {
