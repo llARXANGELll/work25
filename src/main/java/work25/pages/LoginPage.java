@@ -8,31 +8,27 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoginPage {
 
-    SelenideElement loginInput = $(By.name("username"));
-    SelenideElement passwordInput = $(By.name("password"));
-    SelenideElement buttonLogin = $(By.id("login-button"));
+    private SelenideElement loginInput = $(By.name("username"));
+    private SelenideElement passwordInput = $(By.name("password"));
+    private SelenideElement buttonLogin = $(By.id("login-button"));
 
-    @Step("Открывает сайт")
     public LoginPage openSuite() {
         open("https://idemo.bspb.ru/");
         return this;
     }
 
-    @Step("Вводит логин")
     public LoginPage setLogin(String login) {
         loginInput.clear();
         loginInput.sendKeys(login);
         return this;
     }
 
-    @Step("Вводит пароль")
     public LoginPage setPassword(String password) {
         passwordInput.clear();
         passwordInput.sendKeys(password);
         return this;
     }
 
-    @Step("Нажимает кнопку Войти")
     public LoginPage clickLoginButton() {
         buttonLogin.click();
         return this;

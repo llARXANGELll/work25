@@ -14,7 +14,7 @@ public class LoginSteps {
 
     @Допустим("вводит логин {string}")
     public void enterlogin(String loginValue) {
-        loginPage.setLogin(loginValue);
+        loginPage.setLogin(loginValue); // ?
     }
 
     @Допустим("вводит парль {string}")
