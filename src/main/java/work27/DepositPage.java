@@ -1,19 +1,10 @@
 package work27;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.eo.Se;
-import io.qameta.allure.Step;
-import javafx.scene.control.CheckBox;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.IFactoryAnnotation;
-
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class DepositPage {
@@ -79,7 +70,6 @@ public class DepositPage {
         }
     }
 
-    @Step("Проверка что отображается только вклад Управляй")
     public void checkTabsManage(List<String> tabs) {
         for (SelenideElement tabManageCheck : tabsDeposit) {
             if (!tabs.contains(tabManageCheck.getText())) {
@@ -88,7 +78,6 @@ public class DepositPage {
         }
     }
 
-    @Step("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
     public void clickDetailsTabsManage() {
         depositmanageClickDetails.click();
     }

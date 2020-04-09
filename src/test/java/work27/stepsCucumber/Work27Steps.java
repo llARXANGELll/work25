@@ -80,15 +80,15 @@ public class Work27Steps {
     public void clickDetailsTabsManage() {
         depositPage.clickDetailsTabsManage();
     }
-//
-//    @Допустим("Проверка открытия в новом окне  страница с названием {string}")
-//    public void openWindowDepositManage(String getNameTitileDepositManage) {
-//        switchTo().window(1);
-//        Assert.assertEquals(getWebDriver().getTitle(), getNameTitileDepositManage);
-//    }
-//
-//    @Допустим("Проверка отображение на странице надписи")
-//    public void checkDepositManageTitle(List<String> depositManageTitle) {
-//        depositManagePage.checkDepositManageTitle(depositManageTitle);
-//    }
+
+    @Допустим("Проверка открытия в новом окне  страница с названием {string}")
+    public void openWindowDepositManage(String getNameTitileDepositManage) {
+        switchTo().window(1);
+        Assert.assertEquals(getWebDriver().getTitle(), getNameTitileDepositManage);
+    }
+
+    @Допустим("Проверка отображение на странице надписи")
+    public void checkDepositManageTitle(List<String> depositManageTitle) {
+        depositManagePage.checkDepositManageTitle(depositManageTitle);
+    }
 }
