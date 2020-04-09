@@ -56,7 +56,7 @@ public class Work27Steps {
         depositPage.checkboxAvailabilityCheckboxOnline(checkbox);
     }
 
-    @Допустим("Проверка что отображаются")
+    @Допустим("Проверка что отображаются вклады")
     public void displayTabs(List<String> tabs) {
         depositPage.displayTabs(tabs);
     }
@@ -66,20 +66,20 @@ public class Work27Steps {
         depositPage.settingСheckboxes(checkboxies);
     }
 
-//    @Допустим("Проверка что вкладки пропали")
-//    public void depositAreGone(List<String> tabs) {
-//        depositPage.tabsAreGone(tabs);
-//    }
-//
-//    @Допустим("Проверка что отображается только вклад")
-//    public void checkDepositManage(List<String> tabs) {
-//        depositPage.checkTabsManage(tabs);
-//    }
-//
-//    @Допустим("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
-//    public void clickDetailsTabsManage() {
-//        depositPage.clickDetailsTabsManage();
-//    }
+    @Допустим("Проверка что вкладки пропали")
+    public void depositAreGone(List<String> tabs) {
+        depositPage.tabsAreGone(tabs);
+    }
+
+    @Допустим("Проверка что отображается только вклад")
+    public void checkDepositManage(List<String> tabs) {
+        depositPage.checkTabsManage(tabs);
+    }
+
+    @Допустим("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
+    public void clickDetailsTabsManage() {
+        depositPage.clickDetailsTabsManage();
+    }
 //
 //    @Допустим("Проверка открытия в новом окне  страница с названием {string}")
 //    public void openWindowDepositManage(String getNameTitileDepositManage) {

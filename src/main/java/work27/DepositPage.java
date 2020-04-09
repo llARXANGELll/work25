@@ -2,6 +2,7 @@ package work27;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.eo.Se;
 import io.qameta.allure.Step;
 import javafx.scene.control.CheckBox;
 import org.openqa.selenium.By;
@@ -22,7 +23,6 @@ public class DepositPage {
     SelenideElement depositmanageClickDetails = $(By.xpath("//a[@data-test-id='Button-white']"));
     SelenideElement checkboxes = $(By.xpath("//div[@class='kitt-checkbox-group kitt-checkbox-group_orientation_horizontal']"));
 
-    @Step("Переходит на вкладку Подобрать вклад")
     public void goTitleContribution() {
         goTitleContribution.click();
     }
@@ -38,16 +38,7 @@ public class DepositPage {
                 throw new IllegalArgumentException("Нет чекбокса с текстом" + checbox.getText());
             }
         }
-//        checkboxTexts = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
-//        for (int i = 0; i < checkboxTexts.size(); i++) {
-//            checkboxTexts.set(i, checkboxTexts.get(i).toLowerCase());
-//        }
-//        new CheckBox();
-//        for (SelenideElement checkbox : checkboxes.$$(By.xpath("label"))) {
-//                if (!checkboxTexts.contains(checkbox.getText().toLowerCase())) {
-//                    throw new IllegalArgumentException("Нет чексбокса с текстом " + checkbox.getText());
-//                }
-        }
+    }
 
     public void checkboxAvailabilityCheckboxOnline(String checkboxText) {
         boolean checkboxFound = false;
@@ -66,33 +57,35 @@ public class DepositPage {
         nameTabs = nameTabs.stream().map(String::toLowerCase).collect(Collectors.toList());
         for (SelenideElement tabs : tabsDeposit) {
             if (!nameTabs.contains(tabs.getText().toLowerCase())) {
-                throw new IllegalArgumentException("Нет найдена вкладка с названием " + tabs.getText());
+                throw new IllegalArgumentException("Не найдена вкладка с названием " + tabs.getText());
             }
         }
     }
 
-    @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
     public void settingСheckboxes(List<String> checkboxies) {
         checkboxies = checkboxies.stream().map(String::toLowerCase).collect(Collectors.toList());
         for (SelenideElement checkboxClicl : checkboxes.$$(By.xpath("label"))) {
-            if (!checkboxies.contains(checkboxClicl.getText().toLowerCase())) {
+            if (checkboxies.contains(checkboxClicl.getText().toLowerCase())) {
                 checkboxClicl.click();
             }
         }
-        System.out.println("d");
     }
 
-
-    @Step("Проверка что вклад Сохраняй и Пополняй пропал ")
     public void tabsAreGone(List<String> tabs) {
-        Assert.assertFalse(tabsDeposit.get(0).getText().equals(tabs.get(0)));
-        Assert.assertFalse(tabsDeposit.get(0).getText().equals(tabs.get(1)));
-
+        for (SelenideElement nameTabs : tabsDeposit) {
+            if (tabs.contains(nameTabs.getText())) {
+                throw new IllegalArgumentException("такие вкладки есть " + nameTabs.getText());
+            }
+        }
     }
 
     @Step("Проверка что отображается только вклад Управляй")
     public void checkTabsManage(List<String> tabs) {
-        Assert.assertTrue(tabsDeposit.get(0).getText().equals(tabs.get(0)));
+        for (SelenideElement tabManageCheck : tabsDeposit) {
+            if (!tabs.contains(tabManageCheck.getText())) {
+                throw new IllegalArgumentException("этой вкладки нет " + tabManageCheck.getText());
+            }
+        }
     }
 
     @Step("Пользователь нажимает на кнопку Подроблее у вклада Управляй")
