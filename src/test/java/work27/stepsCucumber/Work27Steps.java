@@ -40,6 +40,11 @@ public class Work27Steps {
         depositPage.goTitleContribution();
     }
 
+    @Допустим("Переключает фрейм")
+    public void switchFrame() {
+        depositPage.switchFrame();
+    }
+
     @Допустим("Проверка отображение чек боксов")
     public void checkboxAvailability(List<String> checkboxies) {
         depositPage.checkboxAvailability(checkboxies);
@@ -55,11 +60,11 @@ public class Work27Steps {
     public void displayTabs(List<String> tabs) {
         depositPage.displayTabs(tabs);
     }
-//
-//    @Допустим("Пользователь проставляет чек бокы")
-//    public void settingСheckboxes(List<String> checkboxies) {
-//        depositPage.settingСheckboxes(checkboxies);
-//    }
+
+    @Допустим("Пользователь проставляет чек бокы")
+    public void settingСheckboxes(List<String> checkboxies) {
+        depositPage.settingСheckboxes(checkboxies);
+    }
 
 //    @Допустим("Проверка что вкладки пропали")
 //    public void depositAreGone(List<String> tabs) {

@@ -27,8 +27,11 @@ public class DepositPage {
         goTitleContribution.click();
     }
 
-    public void checkboxAvailability(List<String> checkboxTexts) {
+    public void switchFrame () {
         switchTo().frame(0);
+    }
+
+    public void checkboxAvailability(List<String> checkboxTexts) {
         checkboxTexts = checkboxTexts.stream().map(String::toLowerCase).collect(Collectors.toList());
         for (SelenideElement checbox : checkboxes.$$(By.xpath("label"))) {
             if (!checkboxTexts.contains(checbox.getText().toLowerCase())) {
@@ -59,7 +62,6 @@ public class DepositPage {
         }
     }
 
-    @Step("Проверка что отображаются вкладки")
     public void displayTabs(List<String> nameTabs) {
         nameTabs = nameTabs.stream().map(String::toLowerCase).collect(Collectors.toList());
         for (SelenideElement tabs : tabsDeposit) {
@@ -67,17 +69,19 @@ public class DepositPage {
                 throw new IllegalArgumentException("Нет найдена вкладка с названием " + tabs.getText());
             }
         }
-
-//        Assert.assertTrue(tabsDeposit.get(0).getText().equals(tabs.get(0)));
-//        Assert.assertTrue(tabsDeposit.get(1).getText().equals(tabs.get(1)));
-//        Assert.assertTrue(tabsDeposit.get(2).getText().equals(tabs.get(2)));
     }
 
-//    @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
-//    public void settingСheckboxes(List<String> checkboxies) {
-//        checkboxLabel.get(0).click();
-//        checkboxLabel.get(1).click();
-//    }
+    @Step("Пользователь проставляе чек бокы Хочу снимать и Хочу пополнять")
+    public void settingСheckboxes(List<String> checkboxies) {
+        checkboxies = checkboxies.stream().map(String::toLowerCase).collect(Collectors.toList());
+        for (SelenideElement checkboxClicl : checkboxes.$$(By.xpath("label"))) {
+            if (!checkboxies.contains(checkboxClicl.getText().toLowerCase())) {
+                checkboxClicl.click();
+            }
+        }
+        System.out.println("d");
+    }
+
 
     @Step("Проверка что вклад Сохраняй и Пополняй пропал ")
     public void tabsAreGone(List<String> tabs) {
