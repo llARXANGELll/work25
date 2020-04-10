@@ -11,7 +11,7 @@ public class HomePageAvito {
         Selenide.open(nameSuite);
     }
     public void checkNamePageTitile (String getNameTitile) {
-        Assert.assertEquals(getWebDriver().getTitle().replaceAll("купить, продать и обменять машину в Москве"), getNameTitile);
+        Assert.assertEquals(getWebDriver().getTitle(), getNameTitile);
         System.out.println("");
     }
 }
