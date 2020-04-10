@@ -14,15 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Work28Steps {
 
-    @Допустим("пользователь входит на сайт {string}")
-    public void пользовательВходитНаСайт(String string) {
 
-    }
-
-    @Допустим("Название страницы содержит {string}")
-    public void названиеСтраницыСодержит(String string) {
-
-    }
 
     @Допустим("Сохранение кол. объявлений отображаемых перед названием производителя {string}")
     public void сохранениеКолОбъявленийОтображаемыхПередНазваниемПроизводителя(String string) {
