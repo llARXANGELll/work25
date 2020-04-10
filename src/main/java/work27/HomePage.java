@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage {
 
-    SelenideElement contriburions = $(By.xpath("//span[text()='Вклады']"));
-    SelenideElement transitionToDeposits = $(By.xpath("//li[@class='lg-menu__sub-item']/a[text()='Вклады']"));
+    private SelenideElement contriburions = $(By.xpath("//span[text()='Вклады']"));
+    private SelenideElement transitionToDeposits = $(By.xpath("//li[@class='lg-menu__sub-item']/a[text()='Вклады']"));
 
     @Step("Переходит через верхнее меню во вклады")
     public void transitionToDeposits() {

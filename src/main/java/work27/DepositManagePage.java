@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DepositManagePage {
 
-    List<SelenideElement> depositNameTitle = $$(By.xpath("//div[2]/div/div/h2[@class='kit-heading kit-heading_l product-teaser-full-width__header']"));
+    private List<SelenideElement> depositNameTitle = $$(By.xpath("//div[2]/div/div/h2[@class='kit-heading kit-heading_l product-teaser-full-width__header']"));
 
     public void checkDepositManageTitle(List<String> depositManageTitle) {
         depositManageTitle = depositManageTitle.stream().map(String::toLowerCase).collect(Collectors.toList());
