@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class HomePageAvito {
+public class HomePageAvto {
 
 
 
@@ -28,9 +28,6 @@ public class HomePageAvito {
     }
     public void goToThePageAuto(String clickNameAuto) {
         SelenideElement clickAuto = $(By.xpath("//div[text() = '"+clickNameAuto+"']/ancestor::a"));
-        System.out.println(clickAuto);
         clickAuto.click();
-        System.out.println("d");
-
     }
 }
