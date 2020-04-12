@@ -19,7 +19,7 @@ public class HomePageSteps {
 
     @Допустим("Закрытие всплывающего предложения")
     public void closeOffer () {
-        homePage.closeCookie();
+        homePage.closeOffer();
     }
 
     @Допустим("Сохранение кол. объявлений отображаемых перед названием производителя {string}")

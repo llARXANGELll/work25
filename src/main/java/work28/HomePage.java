@@ -21,7 +21,7 @@ public class HomePage {
         Assert.assertTrue(title().matches(getNameTitile));
     }
 
-    public void closeCookie() {
+    public void closeOffer() {
         $(By.className("Button_color_transparentBlue")).waitUntil(Condition.visible, 5000).doubleClick();
     }
 
