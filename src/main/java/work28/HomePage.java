@@ -3,15 +3,21 @@ package work28;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ex.ElementShould;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import javax.lang.model.util.Elements;
+import javax.xml.bind.Element;
 
 
 public class HomePage {
 
     static String sumValueAutoAllOffers;
+    SelenideElement offerVisibility = $(".Button_color_transparentBlue");
 
     public void openSuite(String nameSuite) {
         Selenide.open(nameSuite);
@@ -22,7 +28,13 @@ public class HomePage {
     }
 
     public void closeOffer() {
-        $(By.className("Button_color_transparentBlue")).waitUntil(Condition.visible, 5000).doubleClick();
+        try {
+            offerVisibility.waitUntil(Condition.appear, 5000);
+            offerVisibility.click();
+        } catch (ElementShould ignored) {
+            System.out.println("Элемента нет");
+        }
+        System.out.println("Элемент закрыт");
     }
 
     public void saveCountBrand(String countBrand) {
