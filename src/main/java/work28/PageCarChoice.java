@@ -6,10 +6,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PageCarChoice {
 
-    HomePageAvto homePageAvto = new HomePageAvto();
-    SelenideElement getSumOffers = $(By.cssSelector(".ButtonWithLoader__content"));
-    SelenideElement getSumOffersModel = $(By.cssSelector(".ButtonWithLoader__content"));
-    String sumValueAutoAllOffers = homePageAvto.sumValueAutoAllOffers;
+    private HomePageAvto homePageAvto = new HomePageAvto();
+    private SelenideElement getSumOffers = $(By.cssSelector(".ButtonWithLoader__content"));
+    private SelenideElement getSumOffersModel = $(By.cssSelector(".ButtonWithLoader__content"));
+    private String sumValueAutoAllOffers = homePageAvto.sumValueAutoAllOffers;
     static String saveValueModelAuto;
 
     public void checkValueCountBrand() {
