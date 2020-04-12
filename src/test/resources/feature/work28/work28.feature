@@ -13,6 +13,6 @@
     * Отображается кнопка содержаще количество объявлений из предыдущего шага
     Примеры:
       |  carFirm   | carModel |
-#      |   Chery    |  Tiggo 3 |
-      |    BMW     |    X5    |
-      | Volkswagen |   Polo   |
+      |   Chery    |  Tiggo 3 |
+      |    MINI    |  Clubman |
+      |    ГАЗ     |    69    |
