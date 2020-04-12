@@ -17,5 +17,18 @@ public class PageCarChoiceSteps {
         pageCarChoice.checkValueCountBrand();
     }
 
+    @Допустим("Сохранить количество объявлений {string} марки автомобиля")
+    public void saveOffersCarModel(String carModel) {
+        pageCarChoice.saveOffersCarModel(carModel);
+    }
 
+    @Допустим("Перейти на страницу {string}")
+    public void goToPageModelAuto(String goToNameCar) {
+        pageCarChoice.goToPageModelAuto(goToNameCar);
+    }
+
+    @Допустим("Отображается кнопка содержаще количество объявлений из предыдущего шага")
+    public void checkSumOffers() {
+        pageCarChoice.checkSumOffers();
+    }
 }
