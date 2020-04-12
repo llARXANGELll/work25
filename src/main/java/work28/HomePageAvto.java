@@ -9,6 +9,8 @@ import org.testng.Assert;
 
 public class HomePageAvto {
 
+    static String sumValueAutoAllOffers;
+
     public void openSuite(String nameSuite) {
         Selenide.open(nameSuite);
     }
@@ -19,7 +21,7 @@ public class HomePageAvto {
 
     public void saveCountBrand(String countBrand) {
         SelenideElement valueAuto = $(By.xpath("//div[text() = '"+countBrand+"']/following :: div"));
-
+        sumValueAutoAllOffers = valueAuto.getText();
     }
 
     public void goToThePageAuto(String clickNameAuto) {

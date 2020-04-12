@@ -12,9 +12,9 @@ public class PageCarChoiceSteps {
 
     PageCarChoice pageCarChoice = new PageCarChoice();
 
-    @Допустим("Проверка отображения кнопки с текстом содержащим колличество объявлений марки {string}")
-    public void checkValueCountBrand(String name) {
-//        pageCarChoice.checkValueCountBrand(name);
+    @Допустим("Проверка отображения кнопки с текстом содержащим колличество объявлений")
+    public void checkValueCountBrand() {
+        pageCarChoice.checkValueCountBrand();
     }
 
 

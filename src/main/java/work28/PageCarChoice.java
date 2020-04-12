@@ -9,14 +9,11 @@ import static com.codeborne.selenide.Selenide.$;
 public class PageCarChoice {
 
     HomePageAvto homePageAvto = new HomePageAvto();
-    SelenideElement closeBanner = $(By.xpath("//span[text()= 'Понятно, спасибо']"));
-    SelenideElement valueON = $(By.xpath("//span[@class='ButtonWithLoader__content']"));
+    SelenideElement getSumOffers = $(By.xpath("//span[@class='ButtonWithLoader__content']"));
+    String sumValueAutoAllOffers = homePageAvto.sumValueAutoAllOffers;
 
-    public void checkValueCountBrand(SelenideElement name) {
-        closeBanner.click();
-//        String asa = valueON.getText();
-//        String.valueOf(valueON);
-//        Assert.assertEquals(valueON, homePageAvto.saveCountBrand(name));
-//        System.out.println(name);
+    public void checkValueCountBrand() {
+        String allSumOffers = getSumOffers.getText().replaceAll("Показать ", "").replaceAll(" предложений", "");
+        sumValueAutoAllOffers.equals(allSumOffers);
     }
 }
