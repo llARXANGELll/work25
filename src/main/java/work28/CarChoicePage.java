@@ -12,11 +12,15 @@ public class CarChoicePage {
     private SelenideElement getSumOffers = $(By.cssSelector(".ButtonWithLoader__content"));
     private SelenideElement getSumOffersModel = $(By.cssSelector(".ButtonWithLoader__content"));
     private String sumValueAutoAllOffers = homePage.sumValueAutoAllOffers;
-    static String saveValueModelAuto;
+    private String saveValueModelAuto;
 
     public void checkValueCountBrand() {
-        String allSumOffers = getSumOffers.getText().replaceAll("Показать ", "").replaceAll(" предложений", "");
-        sumValueAutoAllOffers.equals(allSumOffers);
+        String allSumOffers = getSumOffers.getText().replaceAll("Показать ", "").replaceAll(" предложения| предложений| предложение", "");
+        System.out.println(allSumOffers + " " +  " tut " + sumValueAutoAllOffers);
+
+        Assert.assertTrue(sumValueAutoAllOffers.equals(allSumOffers));
+//        Assert.assertTrue(Boolean.parseBoolean(allSumOffers), sumValueAutoAllOffers);
+
     }
 
     public void saveOffersCarModel(String carModel) {
@@ -29,7 +33,9 @@ public class CarChoicePage {
     }
 
     public void checkSumOffers() {
-        String allSumOfferModel = getSumOffersModel.getText().replaceAll("Показать ", "").replaceAll(" предложений", "");
-        Assert.assertTrue(allSumOfferModel.equals(saveValueModelAuto));
+        String allSumOfferModel = getSumOffersModel.getText().replaceAll("Показать ", "").replaceAll(" предложения| предложений| предложение", "");
+        System.out.println(allSumOfferModel + " tam " + saveValueModelAuto);
+
+        Assert.assertTrue(saveValueModelAuto.equals(allSumOfferModel));
     }
 }
