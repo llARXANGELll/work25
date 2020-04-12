@@ -22,15 +22,13 @@ public class HomePage {
     }
 
     public void closeCookie() {
-        $("a.cookie-warning__close").waitUntil(Condition.visible, 10000).click();
+        $(By.className("Button_color_transparentBlue")).waitUntil(Condition.visible, 5000).doubleClick();
     }
 
     public void saveCountBrand(String countBrand) {
         SelenideElement valueAuto = $(By.xpath("//div[text() = '"+countBrand+"']/following :: div"));
+        sumValueAutoAllOffers = valueAuto.getText();
 
-//        $(".Button_color_transparentBlue").click();
-
-        $("a.cookie-warning__close").waitUntil(Condition.visible, 10000).click();
     }
 
     public void goToThePageAuto(String clickNameAuto) {
