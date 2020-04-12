@@ -12,7 +12,7 @@ public class PageCarChoiceSteps {
         pageCarChoice.checkValueCountBrand();
     }
 
-    @Допустим("Сохранить количество объявлений {string} марки автомобиля")
+    @Допустим("Сохранить количество объявлений марки автомобиля {string}")
     public void saveOffersCarModel(String carModel) {
         pageCarChoice.saveOffersCarModel(carModel);
     }

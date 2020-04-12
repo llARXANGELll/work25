@@ -23,9 +23,7 @@ public class PageCarChoice {
     }
 
     public void goToPageModelAuto(String goToNameCar) {
-        SelenideElement click = $(By.xpath("//a[text()='"+goToNameCar+"']"));
-        click.click();
-        System.out.println(click);
+        $(By.xpath("//a[text()='"+goToNameCar+"']")).click();
     }
 
     public void checkSumOffers() {
