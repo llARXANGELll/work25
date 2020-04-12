@@ -2,14 +2,16 @@ package work28;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.testng.Assert;
+
 import static com.codeborne.selenide.Selenide.$;
 
-public class PageCarChoice {
+public class CarChoicePage {
 
-    private HomePageAvto homePageAvto = new HomePageAvto();
+    private HomePage homePage = new HomePage();
     private SelenideElement getSumOffers = $(By.cssSelector(".ButtonWithLoader__content"));
     private SelenideElement getSumOffersModel = $(By.cssSelector(".ButtonWithLoader__content"));
-    private String sumValueAutoAllOffers = homePageAvto.sumValueAutoAllOffers;
+    private String sumValueAutoAllOffers = homePage.sumValueAutoAllOffers;
     static String saveValueModelAuto;
 
     public void checkValueCountBrand() {
@@ -28,6 +30,6 @@ public class PageCarChoice {
 
     public void checkSumOffers() {
         String allSumOfferModel = getSumOffersModel.getText().replaceAll("Показать ", "").replaceAll(" предложений", "");
-        allSumOfferModel.equals(saveValueModelAuto);
+        Assert.assertTrue(allSumOfferModel.equals(saveValueModelAuto));
     }
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 
-public class HomePageAvto {
+public class HomePage {
 
     static String sumValueAutoAllOffers;
 
