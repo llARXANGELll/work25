@@ -2,8 +2,6 @@ package work28;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class PageCarChoice {
