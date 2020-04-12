@@ -28,13 +28,13 @@ public class HomePage {
     }
 
     public void closeOffer() {
-        try {
-            offerVisibility.waitUntil(Condition.appear, 5000);
-            offerVisibility.click();
-        } catch (ElementShould ignored) {
-            System.out.println("Элемента нет");
+        String z = "Понятно, спасибо";
+        if (!offerVisibility.getText().equals(z)) {
+            offerVisibility.doubleClick();
         }
-        System.out.println("Элемент закрыт");
+        else {
+            System.out.println("netu");
+        }
     }
 
     public void saveCountBrand(String countBrand) {
