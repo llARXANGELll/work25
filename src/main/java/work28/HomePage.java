@@ -4,15 +4,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.ex.ElementShould;
+import com.codeborne.selenide.ex.ElementNotFound;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class HomePage {
 
-
     private static String sumValueAutoAllOffers;
-    SelenideElement offerVisibility = $(".Button_color_transparentBlue");
+    private SelenideElement offerVisibility = $(".Button_color_transparentBlue");
 
     public String getSumValueAutoAllOffers() {
         return sumValueAutoAllOffers;
@@ -30,17 +29,12 @@ public class HomePage {
         try {
             offerVisibility.waitUntil(Condition.visible, 2000);
                     offerVisibility.doubleClick();
-            System.out.println("Элемент закрыли");
-        } catch (ElementShould ignore) {
-            System.out.println("Элемент не найден");
-        }
-
+        } catch (ElementNotFound ignore) {}
     }
 
     public void saveCountBrand(String countBrand) {
         SelenideElement valueAuto = $(By.xpath("//div[text() = '"+countBrand+"']/following :: div"));
         sumValueAutoAllOffers = valueAuto.getText();
-
     }
 
     public void goToThePageAuto(String clickNameAuto) {
