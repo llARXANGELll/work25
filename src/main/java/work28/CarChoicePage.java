@@ -11,12 +11,12 @@ public class CarChoicePage {
     private HomePage homePage = new HomePage();
     private SelenideElement getSumOffers = $(By.cssSelector(".ButtonWithLoader__content"));
     private SelenideElement getSumOffersModel = $(By.cssSelector(".ButtonWithLoader__content"));
-    private String sumValueAutoAllOffers = homePage.sumValueAutoAllOffers;
+    private String sumValueAutoAllOffers = homePage.getSumValueAutoAllOffers();
     private String saveValueModelAuto;
 
     public void checkValueCountBrand() {
         String allSumOffers = getSumOffers.getText().replaceAll("Показать ", "").replaceAll(" предложения| предложений| предложение", "");
-        Assert.assertTrue(sumValueAutoAllOffers.equals(allSumOffers));
+        Assert.assertEquals(sumValueAutoAllOffers, allSumOffers);
     }
 
     public void saveOffersCarModel(String carModel) {
@@ -30,6 +30,6 @@ public class CarChoicePage {
 
     public void checkSumOffers() {
         String allSumOfferModel = getSumOffersModel.getText().replaceAll("Показать ", "").replaceAll(" предложения| предложений| предложение", "");
-        Assert.assertTrue(saveValueModelAuto.equals(allSumOfferModel));
+        Assert.assertEquals(saveValueModelAuto, allSumOfferModel);
     }
 }

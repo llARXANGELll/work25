@@ -10,8 +10,13 @@ import org.testng.Assert;
 
 public class HomePage {
 
-    static String sumValueAutoAllOffers;
+
+    private static String sumValueAutoAllOffers;
     SelenideElement offerVisibility = $(".Button_color_transparentBlue");
+
+    public String getSumValueAutoAllOffers() {
+        return sumValueAutoAllOffers;
+    }
 
     public void openSuite(String nameSuite) {
         Selenide.open(nameSuite);
