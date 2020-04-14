@@ -18,7 +18,7 @@ public class HomePageSteps {
     }
 
     @Допустим("Закрытие всплывающего предложения")
-    public void closeOffer () {
+    public void closeOffer() {
         homePage.closeOffer();
     }
 
