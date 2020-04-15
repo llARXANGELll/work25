@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
                 "work27.stepsCucumber",
                 "work28.stepsCucumber"
         },
-        tags = "@Work27Regress and @Work28Regress"
+        tags = "@Work27Regress"
 )
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
