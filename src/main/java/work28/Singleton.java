@@ -1,15 +1,20 @@
 package work28;
 
-public class Singleton {
-    private static Singleton sumValueAutoAllOffers;
+import com.codeborne.selenide.SelenideElement;
 
-    public Singleton() {
-    }
+public final class Singleton {
+    private static SelenideElement sumValueAutoAllOffers;
 
-    public static Singleton getSumValueAutoAllOffers() {
+
+    public static SelenideElement getSumValueAutoAllOffers() {
         if (sumValueAutoAllOffers == null) {
-            sumValueAutoAllOffers = new Singleton();
+            sumValueAutoAllOffers = null;
         }
         return sumValueAutoAllOffers;
     }
+
+    public void setSumValueAutoAllOffers(SelenideElement sumValueAutoAllOffers) {
+        this.sumValueAutoAllOffers = sumValueAutoAllOffers;
+    }
+
 }

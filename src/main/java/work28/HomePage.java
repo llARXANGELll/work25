@@ -38,6 +38,13 @@ public class HomePage {
     public void saveCountBrand(String countBrand) {
         SelenideElement valueAuto = $(By.xpath("//div[text() = '" + countBrand + "']/following :: div"));
         sumValueAutoAllOffers = valueAuto.getText();
+        System.out.println(valueAuto + " valueAuto");
+        Singleton singleton = new Singleton();
+        singleton.setSumValueAutoAllOffers($(By.xpath("//div[text() = '" + countBrand + "']/following :: div")));
+        System.out.println(getSumValueAutoAllOffers() + "getSingl");
+        System.out.println("1");
+
+
     }
 
     public void goToThePageAuto(String clickNameAuto) {
