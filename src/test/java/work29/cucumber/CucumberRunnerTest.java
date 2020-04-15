@@ -7,10 +7,11 @@ import org.testng.annotations.BeforeMethod;
 
 @CucumberOptions(
         plugin = "json:target/cucumber-report.json",
-        features = "src/test/resources/feature/work29",
+        features = "src/test/resources/feature/work28",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         glue =
-                "work28.stepsCucumber"
+                 "work28.stepsCucumber"
+
 
 
 
