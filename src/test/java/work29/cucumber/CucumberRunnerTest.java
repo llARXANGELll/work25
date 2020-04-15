@@ -7,10 +7,13 @@ import org.testng.annotations.BeforeMethod;
 
 @CucumberOptions(
         plugin = "json:target/cucumber-report.json",
-        features = "src/test/resources/feature",
+        features = "src/test/resources/feature/work29",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        glue = "work29.stepsCucumber",
-        tags = "@Work27Regress"
+        glue = {
+                "work27.stepsCucumber",
+                "work28.stepsCucumber"
+        },
+        tags = "@Work27Regress and @Work28Regress"
 )
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
