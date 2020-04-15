@@ -17,7 +17,7 @@ public class PageCarChoiceSteps {
         carChoicePage.saveOffersCarModel(carModel);
     }
 
-    @Допустим("Перейти на страницу {string}")
+    @Допустим("Перейти на страницу автомобиля марки {string}")
     public void goToPageModelAuto(String goToNameCar) {
         carChoicePage.goToPageModelAuto(goToNameCar);
     }
