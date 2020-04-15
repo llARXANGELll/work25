@@ -7,7 +7,6 @@ public class AvtoRuData {
     private static AvtoRuData instance;
 
     private  String sumValueAutoAllOffers;
-
     private AvtoRuData() {}
 
     public static AvtoRuData getInstance() {
@@ -24,5 +23,4 @@ public class AvtoRuData {
     public void setSumValueAutoAllOffers(String sumValueAutoAllOffers) {
         this.sumValueAutoAllOffers = sumValueAutoAllOffers;
     }
-
 }
