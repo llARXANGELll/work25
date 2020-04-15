@@ -13,12 +13,12 @@ public class CarChoicePage {
 
     public void checkValueCountBrand() {
         String sumOffers = getSumOffers.getText().replaceAll("Показать ", "").replaceAll(" предложения| предложений| предложение", "");
-        Assert.assertEquals(SavingValueAvtoRu.getSumValueAutoAllOffers(), sumOffers);
+        Assert.assertEquals(AvtoRuData.getInstance().getSumValueAutoAllOffers(), sumOffers);
     }
 
     public void saveOffersCarModel(String carModel) {
-        SelenideElement valueModel = $(By.xpath("//a[text()='"+carModel+"']/following :: div"));
-        SavingValueAvtoRu.setSumValueAutoAllOffers(valueModel.getText());
+        String valueModel = $(By.xpath("//a[text()='"+carModel+"']/following :: div")).getText();
+        AvtoRuData.getInstance().setSumValueAutoAllOffers(valueModel);
     }
 
     public void goToPageModelAuto(String goToNameCar) {
@@ -27,6 +27,6 @@ public class CarChoicePage {
 
     public void checkSumOffers() {
         String allSumOfferModel = getSumOffersModel.getText().replaceAll("Показать ", "").replaceAll(" предложения| предложений| предложение", "");
-        Assert.assertEquals(SavingValueAvtoRu.getSumValueAutoAllOffers(), allSumOfferModel);
+        Assert.assertEquals(AvtoRuData.getInstance().getSumValueAutoAllOffers(), allSumOfferModel);
     }
 }

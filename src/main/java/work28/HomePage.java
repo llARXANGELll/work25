@@ -13,7 +13,6 @@ import org.testng.Assert;
 public class HomePage {
 
     private SelenideElement offerVisibility = $(".Button_color_transparentBlue");
-
     public void openSuite(String nameSuite) {
         Selenide.open(nameSuite);
     }
@@ -32,7 +31,7 @@ public class HomePage {
 
     public void saveCountBrand(String countBrand) {
         String valueAuto = $(By.xpath("//div[text() = '"+countBrand+"']/following :: div")).getText();
-        SavingValueAvtoRu.setSumValueAutoAllOffers(valueAuto);
+        AvtoRuData.getInstance().setSumValueAutoAllOffers(valueAuto);
     }
 
     public void goToThePageAuto(String clickNameAuto) {
