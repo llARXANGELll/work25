@@ -11,9 +11,10 @@ import org.testng.annotations.BeforeMethod;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         glue = {
                 "work27.stepsCucumber",
-                "work28.stepsCucumber"
-        },
-        tags = "@Work27Regress"
+                "work27.stepsCucumber"
+        }
+
+
 )
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
@@ -21,5 +22,6 @@ public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
     public void selenideConfiguration() {
         Configuration.browser = "chrome";
         Configuration.clickViaJs = true;
+
     }
 }
