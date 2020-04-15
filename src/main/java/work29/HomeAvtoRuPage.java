@@ -1,16 +1,16 @@
-package work28;
+package work29;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-
-import static com.codeborne.selenide.Selenide.*;
-
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ex.ElementNotFound;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-public class HomePage {
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
+
+public class HomeAvtoRuPage {
 
     private static String sumValueAutoAllOffers;
     private SelenideElement offerVisibility = $(".Button_color_transparentBlue");

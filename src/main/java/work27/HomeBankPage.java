@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class HomePage {
+public class HomeBankPage {
     SelenideElement contriburions = $(By.xpath("//span[text()='Вклады']"));
     SelenideElement transitionToDeposits = $(By.xpath("//li[@class='lg-menu__sub-item']/a[text()='Вклады']"));
 
