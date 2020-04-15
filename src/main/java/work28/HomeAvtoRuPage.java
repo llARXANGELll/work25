@@ -11,14 +11,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class HomeAvtoRuPage {
-
-    private static String sumValueAutoAllOffers;
     private SelenideElement offerVisibility = $(".Button_color_transparentBlue");
-
-    public String getSumValueAutoAllOffers() {
-        return sumValueAutoAllOffers;
-    }
-
     public void openSuite(String nameSuite) {
         Selenide.open(nameSuite);
     }
@@ -36,8 +29,8 @@ public class HomeAvtoRuPage {
     }
 
     public void saveCountBrand(String countBrand) {
-        SelenideElement valueAuto = $(By.xpath("//div[text() = '" + countBrand + "']/following :: div"));
-        sumValueAutoAllOffers = valueAuto.getText();
+        String valueAuto = $(By.xpath("//div[text() = '"+countBrand+"']/following :: div")).getText();
+        AvtoRuData.getInstance().setSumValueAutoAllOffers(valueAuto);
     }
 
     public void goToThePageAuto(String clickNameAuto) {

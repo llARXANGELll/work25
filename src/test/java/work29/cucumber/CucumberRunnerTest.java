@@ -9,10 +9,9 @@ import org.testng.annotations.BeforeMethod;
         plugin = "json:target/cucumber-report.json",
         features = "src/test/resources/feature/work29",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        glue = {
-                "work27.stepsCucumber",
-                "work27.stepsCucumber"
-        }
+        glue =
+                "work28.stepsCucumber"
+
 
 
 )
