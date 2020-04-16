@@ -12,9 +12,6 @@ import org.testng.annotations.BeforeMethod;
         glue =
                  "work28.stepsCucumber"
 
-
-
-
 )
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
