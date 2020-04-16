@@ -5,10 +5,7 @@ import org.testng.Assert;
 import work27.DepositManagePage;
 import work27.DepositPage;
 import work27.HomeBankPage;
-
 import java.util.List;
-
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -16,11 +13,6 @@ public class Work27Steps {
     HomeBankPage homeBankPage = new HomeBankPage();
     DepositPage depositPage = new DepositPage();
     DepositManagePage depositManagePage = new DepositManagePage();
-
-    @Допустим("пользователь входит на сайт {string}")
-    public void opensSite(String suite) {
-        open(suite);
-    }
 
     @Допустим("Проверяет название главной на соответствие {string}")
     public void pageTitleCheck(String nameTitileHome) {

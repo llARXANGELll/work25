@@ -9,16 +9,18 @@ import org.testng.annotations.BeforeMethod;
         plugin = "json:target/cucumber-report.json",
         features = "src/test/resources/feature/work29",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        glue =
-                 "work28.stepsCucumber"
-
+        glue ={
+                "work28.stepsCucumber",
+                "work27.stepsCucumber"
+        },
+        tags = "@work28 or @work27"
 )
+
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
     @BeforeMethod
     public void selenideConfiguration() {
         Configuration.browser = "chrome";
         Configuration.clickViaJs = true;
-
     }
 }

@@ -24,5 +24,4 @@ public class AvtoRuData {
     public void setSumValueAutoAllOffers(String sumValueAutoAllOffers) {
         this.sumValueAutoAllOffers = sumValueAutoAllOffers;
     }
-
 }
