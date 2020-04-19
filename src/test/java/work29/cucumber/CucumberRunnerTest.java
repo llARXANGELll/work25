@@ -23,10 +23,17 @@ import java.util.Properties;
 )
 
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
+
         @Before
         public void selenideConfiguration() {
-                Configuration.browser = "ie";
+                FileInputStream fils;
+                Properties properties = new Properties();
+                try {
+                        fils = new FileInputStream("src/test/resources/config/cucumberConfig.properties");
+                        properties.load(fils);
+                } catch (IOException ignored) {
+                }
+                Configuration.browser = properties.getProperty("browser");
                 Configuration.clickViaJs = true;
-
         }
 }
