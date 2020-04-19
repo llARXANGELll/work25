@@ -24,15 +24,14 @@ import java.util.Properties;
 
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
-        @Before
+        @BeforeMethod
         public void selenideConfiguration() {
                 FileInputStream fils;
                 Properties properties = new Properties();
                 try {
                         fils = new FileInputStream("src/test/resources/config/cucumberConfig.properties");
                         properties.load(fils);
-                } catch (IOException ignored) {
-                }
+                } catch (IOException ignored) {}
                 Configuration.browser = properties.getProperty("browser");
                 Configuration.clickViaJs = true;
         }
