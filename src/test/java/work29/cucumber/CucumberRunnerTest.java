@@ -26,12 +26,17 @@ public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
         @BeforeMethod
         public void selenideConfiguration() {
-                FileInputStream fils;
                 Properties properties = new Properties();
-                try {
-                        fils = new FileInputStream("src/test/resources/config/cucumberConfig.properties");
-                        properties.load(fils);
-                } catch (IOException ignored) {}
+                try (FileInputStream files = new FileInputStream("src/test/resources/config/cucumberConfig.properties")) {
+                        properties.load(files);
+                } catch (FileNotFoundException e) {
+                       e.printStackTrace();
+                       throw new IllegalArgumentException("Файл не найден");
+                } catch (IOException e) {
+                        e.printStackTrace();
+                        throw new IllegalArgumentException("Свойства в файле не заданы");
+                }
+
                 Configuration.browser = properties.getProperty("browser");
                 Configuration.clickViaJs = true;
         }
