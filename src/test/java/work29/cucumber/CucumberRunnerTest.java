@@ -17,7 +17,6 @@ import java.util.Properties;
         glue ={
                 "work28.stepsCucumber",
                 "work27.stepsCucumber",
-                "work30.hooks"
         },
         tags = "@work28 or @work27"
 )
