@@ -1,12 +1,9 @@
 package work29.cucumber;
 
 import com.codeborne.selenide.Configuration;
-import io.cucumber.java.Before;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.BeforeMethod;
-
-import javax.rmi.CORBA.Util;
 import java.io.*;
 import java.util.Properties;
 
@@ -25,7 +22,9 @@ public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
         @BeforeMethod
         public void selenideConfiguration() {
+
                 Properties properties = new Properties();
+
                 try (FileInputStream files = new FileInputStream("src/test/resources/config/cucumberConfig.properties")) {
                         properties.load(files);
                 } catch (FileNotFoundException e) {
