@@ -14,28 +14,11 @@ import java.util.Properties;
         glue ={
                 "work28.stepsCucumber",
                 "work27.stepsCucumber",
+                "work30.cucumberSettings"
         },
         tags = "@work28 or @work27"
 )
 
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
-        @BeforeMethod
-        public void selenideConfiguration() {
-
-                Properties properties = new Properties();
-
-                try (FileInputStream files = new FileInputStream("src/test/resources/config/cucumberConfig.properties")) {
-                        properties.load(files);
-                } catch (FileNotFoundException e) {
-                       e.printStackTrace();
-                       throw new IllegalArgumentException("Файл не найден");
-                } catch (IOException e) {
-                        e.printStackTrace();
-                        throw new IllegalArgumentException("Свойства в файле не заданы");
-                }
-
-                Configuration.browser = properties.getProperty("browser");
-                Configuration.clickViaJs = true;
-        }
 }
