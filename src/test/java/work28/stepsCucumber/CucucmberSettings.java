@@ -1,15 +1,14 @@
-package work30.cucumberSettings;
+package work28.stepsCucumber;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.java.Before;
-import org.testng.annotations.BeforeMethod;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public class CucucmberSettings {
+
     @Before
     public void selenideConfiguration() {
 
