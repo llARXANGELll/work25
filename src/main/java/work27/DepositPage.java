@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DepositPage {
-    SelenideElement goTitleContribution = $(By.xpath("//a[text()='Подобрать вклад']"));
-    List<SelenideElement> tabsDeposit = $$(By.cssSelector(".offered-products__header"));
-    SelenideElement depositmanageClickDetails = $(By.xpath("//a[@data-test-id='Button-white']"));
-    SelenideElement checkboxes = $(By.xpath("//div[@class='kitt-checkbox-group kitt-checkbox-group_orientation_horizontal']"));
+    private SelenideElement goTitleContribution = $(By.xpath("//a[text()='Подобрать вклад']"));
+    private List<SelenideElement> tabsDeposit = $$(By.cssSelector(".offered-products__header"));
+    private SelenideElement depositmanageClickDetails = $(By.xpath("//a[@data-test-id='Button-white']"));
+    private SelenideElement checkboxes = $(By.xpath("//div[@class='kitt-checkbox-group kitt-checkbox-group_orientation_horizontal']"));
 
     public void goTitleContribution() {
         goTitleContribution.click();
