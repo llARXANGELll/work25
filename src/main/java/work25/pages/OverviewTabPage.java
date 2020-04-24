@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class OverviewTabPage {
 
-    SelenideElement buttonOverview = $(By.id("bank-overview"));
-    SelenideElement totalMoney = $(By.xpath("//span[@class='amount']"));
-    SelenideElement myMoney = $(By.className("my-assets"));
+    private SelenideElement buttonOverview = $(By.id("bank-overview"));
+    private SelenideElement totalMoney = $(By.xpath("//span[@class='amount']"));
+    private SelenideElement myMoney = $(By.className("my-assets"));
 
     @Step("Нажимаем на кнопку Обзор")
     public OverviewTabPage overviewButton() {

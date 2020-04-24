@@ -9,8 +9,8 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class SmsConfirmationPage {
 
-    SelenideElement codeEntryField = $(By.name("otpCode"));
-    SelenideElement clickCodeButtonLogin = $(By.xpath("//button[@id='login-otp-button']"));
+    private SelenideElement codeEntryField = $(By.name("otpCode"));
+    private SelenideElement clickCodeButtonLogin = $(By.xpath("//button[@id='login-otp-button']"));
 
 
     @Step("Проверяет название страницы")
