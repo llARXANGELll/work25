@@ -21,7 +21,7 @@ public class CucucmberSettings {
             throw new IllegalArgumentException("Файл не найден");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new IllegalArgumentException("Свойства в файле не заданы");
+            throw new IllegalArgumentException("Не удалось прочитать файл");
         }
 
         Configuration.browser = properties.getProperty("browser");
