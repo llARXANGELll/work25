@@ -11,7 +11,6 @@ public class HomeBankPage {
     private SelenideElement contriburions = $(By.xpath("//span[text()='Вклады']"));
     private SelenideElement transitionToDeposits = $(By.xpath("//li[@class='lg-menu__sub-item']/a[text()='Вклады']"));
 
-    @Step("Переходит через верхнее меню во вклады")
     public void transitionToDeposits() {
         Selenide.actions().moveToElement(contriburions).perform();
         transitionToDeposits.click();
