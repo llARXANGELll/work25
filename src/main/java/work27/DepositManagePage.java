@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DepositManagePage {
