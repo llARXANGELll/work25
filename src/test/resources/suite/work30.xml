@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="work29">
-    <test name="work29">
+<suite name="work30">
+    <test name="work30">
         <classes>
-            <class name="work29.cucumber.CucumberRunnerTest"></class>
+            <class name="work30.cucumber.CucumberRunnerTest"></class>
         </classes>
     </test>
 </suite>

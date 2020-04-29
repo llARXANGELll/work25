@@ -1,11 +1,11 @@
-package work29.cucumber;
+package work30.cucumber;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         plugin = "json:target/cucumber-report.json",
-        features = "src/test/resources/feature/work29",
+        features = "src/test/resources/feature/work30",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         glue ={
                 "work28.stepsCucumber",
