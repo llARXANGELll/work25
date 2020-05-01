@@ -9,7 +9,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class Work27Steps {
+public class SberbankDepositSteps {
     HomeBankPage homeBankPage = new HomeBankPage();
     DepositPage depositPage = new DepositPage();
     DepositManagePage depositManagePage = new DepositManagePage();
