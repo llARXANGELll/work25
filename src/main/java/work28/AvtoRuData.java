@@ -6,9 +6,10 @@ public class AvtoRuData {
 
     private static AvtoRuData instance;
 
-    private  String sumValueAutoAllOffers;
+    private String sumValueAutoAllOffers;
 
-    private AvtoRuData() {}
+    private AvtoRuData() {
+    }
 
     public static AvtoRuData getInstance() {
         if (Objects.isNull(instance)) {
