@@ -5,7 +5,7 @@ import work25.pages.LoginPage;
 
 public class LoginSteps {
 
-    LoginPage loginPage = new LoginPage();
+    private LoginPage loginPage = new LoginPage();
 
     @Допустим("пользователь входит на сайт")
     public void opensSite() {
