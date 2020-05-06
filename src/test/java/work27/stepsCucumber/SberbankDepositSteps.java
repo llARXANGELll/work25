@@ -5,7 +5,9 @@ import org.testng.Assert;
 import work27.DepositManagePage;
 import work27.DepositPage;
 import work27.HomeBankPage;
+
 import java.util.List;
+
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -42,7 +44,6 @@ public class SberbankDepositSteps {
     @Допустим("Проверка отображение чек боксов")
     public void checkboxAvailability(List<String> checkboxies) {
         depositPage.checkboxAvailability(checkboxies);
-
     }
 
     @Допустим("Проверка что чек бокс {string} установлен")
