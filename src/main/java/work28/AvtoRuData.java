@@ -5,7 +5,6 @@ import java.util.Objects;
 public class AvtoRuData {
 
     private static AvtoRuData instance;
-
     private String sumValueAutoAllOffers;
 
     private AvtoRuData() {
