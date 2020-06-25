@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
                 "work28.stepsCucumber",
                 "work27.stepsCucumber",
         },
-        tags = "@work28 or @work27"
+        tags = "@work28"
 )
 
 public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
