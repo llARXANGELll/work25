@@ -19,7 +19,7 @@
         <guava.version>23.0</guava.version>
         <selenide.version>5.10.0</selenide.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <testng.version>7.1.0</testng.version>
+        <testng.version>7.5.1</testng.version>
         <allure-cucumber-5jvm.version>2.13.2</allure-cucumber-5jvm.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <aspectj.version>1.8.10</aspectj.version>
